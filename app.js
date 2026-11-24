@@ -475,16 +475,4 @@ const originals=new WeakMap();
   event.preventDefault();const button=form.querySelector('button[type="submit"]'),target=form.querySelector('[data-flight-results]');
   if(button&&target)searchFlight(form,button,target);
  });
- document.addEventListener('click',event=>{
-  const toggle=event.target.closest('[data-flight-toggle]');
-  if(toggle){const panel=toggle.parentElement.querySelector('[data-flight-panel]');if(panel){panel.hidden=!panel.hidden;toggle.textContent=panel.hidden?'✈ Cerca voli per questa tratta':'Nascondi ricerca voli';}return}
-  const button=event.target.closest('[data-flight-search]');if(!button)return;
-  const panel=button.closest('[data-flight-panel]');if(!panel)return;
-  const from=panel.querySelector('[data-flight-from]'),to=panel.querySelector('[data-flight-to]'),date=panel.querySelector('[data-flight-date]');
-  
-  const values={departure_id:from.value,arrival_id:to.value,outbound_date:date.value,adults:'1'};
-  const form=document.createElement('form');
-  Object.entries(values).forEach(([name,value])=>{const input=document.createElement('input');input.name=name;input.value=value;form.appendChild(input)});
-  searchFlight(form,button,panel.querySelector('[data-flight-results]'));
- });
 })();
