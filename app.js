@@ -332,7 +332,7 @@ const originals=new WeakMap();
   let legs=[{mode:'plane',to:'',date:'',notes:''}];
   const load=()=>{try{const d=JSON.parse(localStorage.getItem(storeKey)||'null');if(d){if(d.origin)byId('diyOrigin').value=d.origin;if(d.startDate)byId('diyStartDate').value=d.startDate;if(Array.isArray(d.legs)&&d.legs.length)legs=d.legs.map(x=>({mode:modes.some(m=>m[0]===x.mode)?x.mode:'plane',to:x.to||'',date:x.date||'',notes:x.notes||''}));if(d.duration)byId('diyDuration').value=d.duration;if(d.budget)byId('diyBudget').value=d.budget;if(d.style)byId('diyStyle').value=d.style;if(d.company)byId('diyCompany').value=d.company;if(d.notes)byId('diyNotes').value=d.notes;}}catch(e){}};
   const save=()=>{try{localStorage.setItem(storeKey,JSON.stringify({origin:byId('diyOrigin').value,startDate:byId('diyStartDate').value,legs,duration:byId('diyDuration').value,budget:byId('diyBudget').value,style:byId('diyStyle').value,company:byId('diyCompany').value,notes:byId('diyNotes').value}))}catch(e){}};
-  const render=()=>{let from=byId('diyOrigin').value.trim();legsBox.innerHTML=legs.map((leg,i)=>{const origin=from||'Inserisci il punto di partenza';const options=modes.map(([v,label])=>'<option value="'+v+'" '+(leg.mode===v?'selected':'')+'>'+label+'</option>').join('');const card='<article class="diy-leg" data-leg="'+i+'"><div class="diy-leg-top"><span class="diy-leg-title">TRATTA '+(i+1)+' · '+(modes.find(m=>m[0]===leg.mode)?.[1]||'Spostamento')+'</span>'+(legs.length>1?'<button type="button" class="diy-leg-remove" data-remove-leg="'+i+'">Rimuovi</button>':'')+'</div><div class="diy-leg-fields"><div class="field"><label>Partenza</label><div class="diy-leg-origin" data-origin-for="'+(i+1)+'">'+safe(origin)+'</div></div><div class="field"><label for="diyLegTo'+i+'">Arrivo</label><input id="diyLegTo'+i+'" data-leg-field="to" data-index="'+i+'" placeholder="Es. Tokyo, Bangkok…" value="'+safe(leg.to)+'" required></div><div class="field"><label for="diyLegMode'+i+'">Mezzo di trasporto</label><select id="diyLegMode'+i+'" data-leg-field="mode" data-index="'+i+'">'+options+'</select></div><div class="field"><label for="diyLegDate'+i+'">Data della tratta (facoltativa)</label><input id="diyLegDate'+i+'" type="date" data-leg-field="date" data-index="'+i+'" value="'+safe(leg.date)+'"></div><div class="field diy-leg-wide"><label for="diyLegNotes'+i+'">Nota (facoltativa)</label><input id="diyLegNotes'+i+'" data-leg-field="notes" data-index="'+i+'" placeholder="Es. volo diretto, scalo, pernottamento…" value="'+safe(leg.notes)+'"></div></div></article>';from=leg.to.trim()||origin;return card}).join('');byId('diyLegCount').textContent=legs.length+(legs.length===1?' tratta':' tratte')};
+  const render=()=>{let from=byId('diyOrigin').value.trim();legsBox.innerHTML=legs.map((leg,i)=>{const origin=from||'Inserisci il punto di partenza';const options=modes.map(([v,label])=>'<option value="'+v+'" '+(leg.mode===v?'selected':'')+'>'+label+'</option>').join('');const card='<article class="diy-leg" data-leg="'+i+'"><div class="diy-leg-top"><span class="diy-leg-title">TRATTA '+(i+1)+' · '+(modes.find(m=>m[0]===leg.mode)?.[1]||'Spostamento')+'</span>'+(legs.length>1?'<button type="button" class="diy-leg-remove" data-remove-leg="'+i+'">Rimuovi</button>':'')+'</div><div class="diy-leg-fields"><div class="field"><label>Partenza</label><div class="diy-leg-origin" data-origin-for="'+(i+1)+'">'+safe(origin)+'</div></div><div class="field"><label for="diyLegTo'+i+'">Arrivo</label><input id="diyLegTo'+i+'" data-leg-field="to" data-index="'+i+'" placeholder="Es. Tokyo, Bangkok…" value="'+safe(leg.to)+'" required></div><div class="field"><label for="diyLegMode'+i+'">Mezzo di trasporto</label><select id="diyLegMode'+i+'" data-leg-field="mode" data-index="'+i+'">'+options+'</select></div><div class="field"><label for="diyLegDate'+i+'">Data della tratta (facoltativa)</label><input id="diyLegDate'+i+'" type="date" data-leg-field="date" data-index="'+i+'" value="'+safe(leg.date)+'"></div><div class="field diy-leg-wide"><label for="diyLegNotes'+i+'">Nota (facoltativa)</label><input id="diyLegNotes'+i+'" data-leg-field="notes" data-index="'+i+'" placeholder="Es. volo diretto, scalo, pernottamento…" value="'+safe(leg.notes)+'"></div><div class="diy-flight-tools"><button type="button" class="diy-flight-toggle" data-flight-toggle="'+i+'">✈ Cerca voli per questa tratta</button><div class="diy-flight-panel" data-flight-panel="'+i+'" hidden><div class="flight-fields"><label>Partenza · IATA<input data-flight-from maxlength="3" placeholder="Es. PSA"></label><label>Arrivo · IATA<input data-flight-to maxlength="3" placeholder="Es. MAD"></label><label>Data<input data-flight-date type="date" value="'+safe(leg.date||'')+'"></label></div><button type="button" class="flight-submit" data-flight-search>Trova voli</button><div class="flight-results" data-flight-results aria-live="polite"></div></div></div></article>';from=leg.to.trim()||origin;return card}).join('');byId('diyLegCount').textContent=legs.length+(legs.length===1?' tratta':' tratte')};
   load();render();
   byId('diyAddLeg')?.addEventListener('click',()=>{const last=legs[legs.length-1];if(!last.to.trim()){byId('diyLegTo'+(legs.length-1))?.focus();return}legs.push({mode:'plane',to:'',date:'',notes:''});render();save();byId('diyLegTo'+(legs.length-1))?.focus()});
   legsBox.addEventListener('input',e=>{const el=e.target;if(!el.matches('[data-leg-field]'))return;const i=Number(el.dataset.index),key=el.dataset.legField;if(legs[i]){legs[i][key]=el.value;if(key==='to'){const next=legsBox.querySelector('[data-origin-for="'+(i+1)+'"]');if(next)next.textContent=el.value.trim()||'Inserisci il punto di partenza'}save()}});
@@ -397,4 +397,62 @@ const originals=new WeakMap();
  const start=()=>{countries.forEach(c=>{const code=iso(c.Paese);if(code)codeNames.set(code,c.Paese);nameIndex.set(normName(c.Paese),c.Paese)});populate();render();initMap()};
  window.roamRenderBucket=start;
  if(countries.length)start();else{const check=setInterval(()=>{if(countries.length){clearInterval(check);start()}},250);setTimeout(()=>clearInterval(check),15000)}
+})();
+
+
+/* ROAM live flights: SerpApi Google Flights through the protected Cloudflare Worker */
+(()=>{
+ const WORKER='https://roam-flights-api.valerio-z-1992.workers.dev';
+ const escFlight=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const fmtDuration=m=>{const n=Number(m);if(!Number.isFinite(n))return '';const h=Math.floor(n/60),r=n%60;return h+' h'+(r?' '+r+' min':'')};
+ const flightList=data=>[...(Array.isArray(data.best_flights)?data.best_flights:[]),...(Array.isArray(data.other_flights)?data.other_flights:[])].slice(0,8);
+ function renderFlightResults(target,data){
+  if(data.error){target.innerHTML='<div class="flight-message">'+escFlight(data.error)+(data.details?' · '+escFlight(data.details):'')+'</div>';return}
+  const items=flightList(data);
+  if(!items.length){target.innerHTML='<div class="flight-message">La ricerca è stata completata, ma il provider non ha restituito voli per questa combinazione. Prova un altro aeroporto o una data diversa.</div>';return}
+  const link=data.search_metadata?.google_flights_url||'https://www.google.com/travel/flights';
+  target.innerHTML=items.map((item,i)=>{
+   const flights=Array.isArray(item.flights)?item.flights:[];
+   const airlines=[...new Set(flights.map(f=>f.airline).filter(Boolean))].join(', ')||'Compagnia non indicata';
+   const first=flights[0]||{},last=flights[flights.length-1]||{};
+   const depart=first.departure_airport?.time||'',arrive=last.arrival_airport?.time||'';
+   const stops=flights.length?Math.max(0,flights.length-1):null;
+   const stopText=stops===null?'':stops===0?'Diretto':stops+' scali';
+   const price=Number(item.price);
+   return '<article class="flight-card"><h4>'+escFlight(airlines)+'</h4><div class="flight-price">'+(Number.isFinite(price)?price.toLocaleString('it-IT')+' €':'Prezzo da verificare')+'</div><div class="flight-meta">'+(depart&&arrive?escFlight(depart)+' → '+escFlight(arrive)+' · ':'')+(item.total_duration?escFlight(fmtDuration(item.total_duration))+' · ':'')+escFlight(stopText)+'</div><a class="flight-link" href="'+escFlight(link)+'" target="_blank" rel="noopener noreferrer">Apri e verifica su Google Flights ↗</a></article>';
+  }).join('')+'<div class="flight-message">Risultati forniti da Google Flights tramite SerpApi. Prezzi, disponibilità, bagagli e condizioni vanno verificati sul sito del venditore.</div>';
+ }
+ async function searchFlight(form,button,target){
+  const fd=new FormData(form),departure_id=String(fd.get('departure_id')||'').trim().toUpperCase(),arrival_id=String(fd.get('arrival_id')||'').trim().toUpperCase(),outbound_date=String(fd.get('outbound_date')||''),adults=Number(fd.get('adults')||1);
+  target.innerHTML='';
+  if(!/^[A-Z]{3}$/.test(departure_id)||!/^[A-Z]{3}$/.test(arrival_id)){target.innerHTML='<div class="flight-message">Inserisci due codici aeroporto IATA di 3 lettere, ad esempio PSA e MAD.</div>';return}
+  if(departure_id===arrival_id){target.innerHTML='<div class="flight-message">Partenza e arrivo devono essere aeroporti diversi.</div>';return}
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(outbound_date)||Number.isNaN(Date.parse(outbound_date+'T00:00:00'))){target.innerHTML='<div class="flight-message">Seleziona una data di partenza valida.</div>';return}
+  button.disabled=true;const original=button.textContent;button.textContent='Ricerca in corso…';
+  target.innerHTML='<div class="flight-message">Sto interrogando Google Flights. Attendi qualche secondo…</div>';
+  try{
+   const response=await fetch(WORKER+'/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({departure_id,arrival_id,outbound_date,trip_type:'one_way',adults})});
+   const data=await response.json();
+   if(!response.ok)throw new Error(data.error||'Il servizio voli non ha completato la ricerca.');
+   renderFlightResults(target,data);
+  }catch(error){target.innerHTML='<div class="flight-message">'+escFlight(error.message||'Errore di connessione al servizio voli.')+'</div>'}
+  finally{button.disabled=false;button.textContent=original||'Cerca voli →'}
+ }
+ document.addEventListener('submit',event=>{
+  const form=event.target.closest('[data-flight-search-form]');if(!form)return;
+  event.preventDefault();const button=form.querySelector('button[type="submit"]'),target=form.parentElement.querySelector('[data-flight-results]');
+  if(button&&target)searchFlight(form,button,target);
+ });
+ document.addEventListener('click',event=>{
+  const toggle=event.target.closest('[data-flight-toggle]');
+  if(toggle){const panel=toggle.parentElement.querySelector('[data-flight-panel]');if(panel){panel.hidden=!panel.hidden;toggle.textContent=panel.hidden?'✈ Cerca voli per questa tratta':'Nascondi ricerca voli';}return}
+  const button=event.target.closest('[data-flight-search]');if(!button)return;
+  const panel=button.closest('[data-flight-panel]');if(!panel)return;
+  const from=panel.querySelector('[data-flight-from]'),to=panel.querySelector('[data-flight-to]'),date=panel.querySelector('[data-flight-date]');
+  const pseudo={querySelector:()=>null};
+  const values={departure_id:from.value,arrival_id:to.value,outbound_date:date.value,adults:'1'};
+  const form=document.createElement('form');
+  Object.entries(values).forEach(([name,value])=>{const input=document.createElement('input');input.name=name;input.value=value;form.appendChild(input)});
+  searchFlight(form,button,panel.querySelector('[data-flight-results]'));
+ });
 })();
