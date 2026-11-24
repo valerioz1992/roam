@@ -422,25 +422,57 @@ const originals=new WeakMap();
    return '<article class="flight-card"><h4>'+escFlight(airlines)+'</h4><div class="flight-price">'+(Number.isFinite(price)?price.toLocaleString('it-IT')+' €':'Prezzo da verificare')+'</div><div class="flight-meta">'+(depart&&arrive?escFlight(depart)+' → '+escFlight(arrive)+' · ':'')+(item.total_duration?escFlight(fmtDuration(item.total_duration))+' · ':'')+escFlight(stopText)+'</div><a class="flight-link" href="'+escFlight(link)+'" target="_blank" rel="noopener noreferrer">Apri e verifica su Google Flights ↗</a></article>';
   }).join('')+'<div class="flight-message">Risultati forniti da Google Flights tramite SerpApi. Prezzi, disponibilità, bagagli e condizioni vanno verificati sul sito del venditore.</div>';
  }
+ async function requestFlight(values,target){
+  const response=await fetch(WORKER+'/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(values)});
+  const data=await response.json();
+  if(!response.ok)throw new Error(data.error||'Il servizio voli non ha completato la ricerca.');
+  renderFlightResults(target,data);
+ }
  async function searchFlight(form,button,target){
-  const fd=new FormData(form),departure_id=String(fd.get('departure_id')||'').trim().toUpperCase(),arrival_id=String(fd.get('arrival_id')||'').trim().toUpperCase(),outbound_date=String(fd.get('outbound_date')||''),adults=Number(fd.get('adults')||1);
-  target.innerHTML='';
-  if(!/^[A-Z]{3}$/.test(departure_id)||!/^[A-Z]{3}$/.test(arrival_id)){target.innerHTML='<div class="flight-message">Inserisci due codici aeroporto IATA di 3 lettere, ad esempio PSA e MAD.</div>';return}
-  if(departure_id===arrival_id){target.innerHTML='<div class="flight-message">Partenza e arrivo devono essere aeroporti diversi.</div>';return}
-  if(!/^\d{4}-\d{2}-\d{2}$/.test(outbound_date)||Number.isNaN(Date.parse(outbound_date+'T00:00:00'))){target.innerHTML='<div class="flight-message">Seleziona una data di partenza valida.</div>';return}
+  const fd=new FormData(form),trip=String(fd.get('trip_type')||'one_way'),adults=Number(fd.get('adults')||1);
   button.disabled=true;const original=button.textContent;button.textContent='Ricerca in corso…';
   target.innerHTML='<div class="flight-message">Sto interrogando Google Flights. Attendi qualche secondo…</div>';
   try{
-   const response=await fetch(WORKER+'/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({departure_id,arrival_id,outbound_date,trip_type:'one_way',adults})});
-   const data=await response.json();
-   if(!response.ok)throw new Error(data.error||'Il servizio voli non ha completato la ricerca.');
-   renderFlightResults(target,data);
+   if(trip==='multi_city'){
+    const rows=[...form.querySelectorAll('[data-multi-leg]')];
+    if(!rows.length)throw new Error('Aggiungi almeno una tratta.');
+    for(let i=0;i<rows.length;i++){
+     const row=rows[i],departure_id=row.querySelector('[data-multi-from]').value.trim().toUpperCase(),arrival_id=row.querySelector('[data-multi-to]').value.trim().toUpperCase(),outbound_date=row.querySelector('[data-multi-date]').value;
+     if(!/^[A-Z]{3}$/.test(departure_id)||!/^[A-Z]{3}$/.test(arrival_id)||departure_id===arrival_id||!/^\\d{4}-\\d{2}-\\d{2}$/.test(outbound_date))throw new Error('Controlla aeroporti IATA e data della tratta '+(i+1)+'.');
+    }
+    target.innerHTML='';
+    for(let i=0;i<rows.length;i++){
+     const row=rows[i],departure_id=row.querySelector('[data-multi-from]').value.trim().toUpperCase(),arrival_id=row.querySelector('[data-multi-to]').value.trim().toUpperCase(),outbound_date=row.querySelector('[data-multi-date]').value;
+     const section=document.createElement('section');section.className='flight-leg-results';section.innerHTML='<h4>Tratta '+(i+1)+': '+escFlight(departure_id)+' → '+escFlight(arrival_id)+'</h4><div class="flight-results-inner"></div>';target.appendChild(section);
+     await requestFlight({departure_id,arrival_id,outbound_date,trip_type:'one_way',adults},section.querySelector('.flight-results-inner'));
+    }
+   }else{
+    const departure_id=String(fd.get('departure_id')||'').trim().toUpperCase(),arrival_id=String(fd.get('arrival_id')||'').trim().toUpperCase(),outbound_date=String(fd.get('outbound_date')||''),return_date=String(fd.get('return_date')||'');
+    if(!/^[A-Z]{3}$/.test(departure_id)||!/^[A-Z]{3}$/.test(arrival_id)||departure_id===arrival_id)throw new Error('Inserisci due codici aeroporto IATA diversi di 3 lettere.');
+    if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(outbound_date))throw new Error('Seleziona una data di partenza valida.');
+    if(trip==='round_trip'&&(!/^\\d{4}-\\d{2}-\\d{2}$/.test(return_date)||return_date<outbound_date))throw new Error('Seleziona una data di ritorno successiva alla partenza.');
+    const values={departure_id,arrival_id,outbound_date,trip_type:trip,adults};
+    if(trip==='round_trip')values.return_date=return_date;
+    await requestFlight(values,target);
+   }
   }catch(error){target.innerHTML='<div class="flight-message">'+escFlight(error.message||'Errore di connessione al servizio voli.')+'</div>'}
   finally{button.disabled=false;button.textContent=original||'Cerca voli →'}
  }
+ document.addEventListener('change',event=>{
+  const select=event.target.closest('[data-trip-type]');if(!select)return;
+  const form=select.closest('form'),single=form.querySelector('[data-single-flight]'),multi=form.querySelector('[data-multicity]'),ret=form.querySelector('[data-return-date]');
+  const isMulti=select.value==='multi_city';single.hidden=isMulti;multi.hidden=!isMulti;ret.hidden=select.value!=='round_trip';
+  single.querySelectorAll('input').forEach(input=>input.required=!isMulti&&(input.name!=='return_date'||select.value==='round_trip'));
+  if(isMulti&&!form.querySelector('[data-multi-leg]'))form.querySelector('[data-multicity-legs]').insertAdjacentHTML('beforeend',multiLegMarkup());
+ });
+ function multiLegMarkup(){return '<div class="flight-fields" data-multi-leg><label>Partenza · IATA<input data-multi-from maxlength="3" placeholder="PSA" required></label><label>Arrivo · IATA<input data-multi-to maxlength="3" placeholder="MAD" required></label><label>Data<input data-multi-date type="date" required></label></div>'}
+ document.addEventListener('click',event=>{
+  const add=event.target.closest('[data-add-flight-leg]');if(!add)return;
+  const form=add.closest('form'),box=form.querySelector('[data-multicity-legs]');box.insertAdjacentHTML('beforeend',multiLegMarkup());
+ });
  document.addEventListener('submit',event=>{
   const form=event.target.closest('[data-flight-search-form]');if(!form)return;
-  event.preventDefault();const button=form.querySelector('button[type="submit"]'),target=form.parentElement.querySelector('[data-flight-results]');
+  event.preventDefault();const button=form.querySelector('button[type="submit"]'),target=form.querySelector('[data-flight-results]');
   if(button&&target)searchFlight(form,button,target);
  });
  document.addEventListener('click',event=>{
@@ -449,7 +481,7 @@ const originals=new WeakMap();
   const button=event.target.closest('[data-flight-search]');if(!button)return;
   const panel=button.closest('[data-flight-panel]');if(!panel)return;
   const from=panel.querySelector('[data-flight-from]'),to=panel.querySelector('[data-flight-to]'),date=panel.querySelector('[data-flight-date]');
-  const pseudo={querySelector:()=>null};
+  
   const values={departure_id:from.value,arrival_id:to.value,outbound_date:date.value,adults:'1'};
   const form=document.createElement('form');
   Object.entries(values).forEach(([name,value])=>{const input=document.createElement('input');input.name=name;input.value=value;form.appendChild(input)});
