@@ -33,3 +33,38 @@ if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serv
 $('surpriseBtn').onclick=()=>{let pool=filtered();if(!pool.length){alert('Nessuna destinazione disponibile con i filtri attuali.');return}detail(pool[Math.floor(Math.random()*pool.length)])};
 
 $('shareBtn').addEventListener('click',async()=>{const shareData={title:'ROAM — Find your next destination',text:'Scopri ROAM: esplora destinazioni e trova il momento giusto per partire.',url:window.location.href};if(navigator.share){try{await navigator.share(shareData);return}catch(error){if(error&&error.name==='AbortError')return}}try{await navigator.clipboard.writeText(shareData.url);alert('Link di ROAM copiato! Ora puoi incollarlo su WhatsApp o dove vuoi.')}catch(error){window.prompt('Copia il link di ROAM:',shareData.url)}});
+
+/* ROAM install experience */
+let roamInstallPrompt=null;
+const installDialog=document.getElementById('installDialog');
+const installAction=document.getElementById('installAction');
+const installHelp=document.getElementById('installHelp');
+const isStandalone=()=>window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+const isAppleMobile=()=>/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+function showInstallHelp(){
+ const apple=isAppleMobile();
+ installHelp.innerHTML=apple
+ ? '<strong>Su iPhone o iPad:</strong><br>1. Tocca il pulsante Condividi in Safari.<br>2. Scorri e scegli “Aggiungi alla schermata Home”.<br>3. Conferma con “Aggiungi”.'
+ : '<strong>Per installare ROAM:</strong><br>Apri il menu del browser (⋮ su Chrome o Edge) e scegli “Installa app” oppure “Aggiungi a schermata Home”. Se la voce non compare, prova con Chrome aggiornato.';
+ installHelp.classList.add('show');
+ installAction.textContent='Ho capito';
+}
+function openInstallDialog(){if(!isStandalone()&&installDialog&&!installDialog.open)installDialog.showModal()}
+window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();roamInstallPrompt=event;installAction.textContent='Installa ROAM';});
+window.addEventListener('appinstalled',()=>{roamInstallPrompt=null;if(installDialog?.open)installDialog.close();const nav=document.getElementById('installNav');if(nav)nav.hidden=true;});
+document.getElementById('installNav')?.addEventListener('click',openInstallDialog);
+installAction?.addEventListener('click',async()=>{
+ if(roamInstallPrompt){
+  const promptEvent=roamInstallPrompt;roamInstallPrompt=null;
+  await promptEvent.prompt();
+  const choice=await promptEvent.userChoice;
+  if(choice?.outcome==='accepted'){installDialog.close();return;}
+  installAction.textContent='Riprova installazione';
+  return;
+ }
+ if(installHelp.classList.contains('show')){installDialog.close();return;}
+ showInstallHelp();
+});
+document.getElementById('installLater')?.addEventListener('click',()=>installDialog.close());
+if(isStandalone()){const nav=document.getElementById('installNav');if(nav)nav.hidden=true;}
+else{document.getElementById('installNav').hidden=false;window.addEventListener('load',()=>setTimeout(openInstallDialog,250));}
