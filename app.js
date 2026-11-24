@@ -252,3 +252,30 @@ else{document.getElementById('installNav').hidden=false;window.addEventListener(
  observer.observe(document.body,{childList:true,characterData:true,subtree:true});
  applyLanguage(['it','en','es'].includes(lang)?lang:'it');
 })();
+
+
+/* ROAM navigation and do-it-yourself trip planner */
+(()=>{
+ const trigger=document.getElementById('menuTrigger'),drawer=document.getElementById('menuDrawer'),backdrop=document.getElementById('menuBackdrop');
+ const home=document.getElementById('homeMain'),page=document.getElementById('diyPage');
+ if(!trigger||!drawer||!page||!home)return;
+ function closeMenu(){drawer.classList.remove('open');backdrop.classList.remove('open');drawer.setAttribute('aria-hidden','true');trigger.setAttribute('aria-expanded','false')}
+ function openMenu(){drawer.classList.add('open');backdrop.classList.add('open');drawer.setAttribute('aria-hidden','false');trigger.setAttribute('aria-expanded','true')}
+ trigger.addEventListener('click',()=>drawer.classList.contains('open')?closeMenu():openMenu());
+ document.getElementById('menuClose').addEventListener('click',closeMenu);
+ backdrop.addEventListener('click',closeMenu);
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+ document.getElementById('openDiy').addEventListener('click',()=>{closeMenu();home.hidden=true;page.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})});
+ document.getElementById('diyBack').addEventListener('click',()=>{page.classList.remove('active');home.hidden=false;window.scrollTo({top:0,behavior:'smooth'})});
+ document.querySelectorAll('[data-menu-placeholder]').forEach(button=>button.addEventListener('click',()=>{closeMenu();alert(button.dataset.menuPlaceholder+' · Questa sezione arriverà presto su ROAM.')}));
+ const form=document.getElementById('diyForm'),result=document.getElementById('diyResult');
+ form.addEventListener('submit',event=>{
+  event.preventDefault();
+  const origin=document.getElementById('diyOrigin').value.trim(),destination=document.getElementById('diyDestination').value.trim();
+  const duration=document.getElementById('diyDuration').value,budget=document.getElementById('diyBudget').value,style=document.getElementById('diyStyle').value,company=document.getElementById('diyCompany').value,notes=document.getElementById('diyNotes').value.trim();
+  const safe=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  result.innerHTML='<h3>La tua idea prende forma ✨</h3><p><strong>'+safe(origin)+' → '+safe(destination)+'</strong></p><p>'+safe(duration)+' · '+safe(budget)+'</p><p>'+safe(style)+' · '+safe(company)+'</p>'+(notes?'<p><strong>Da ricordare:</strong> '+safe(notes)+'</p>':'')+'<p>Prossimo passo: scegli le tappe principali, raggruppa le visite per zona e lascia un po’ di spazio alle scoperte improvvisate.</p>';
+  result.classList.add('show');
+  result.scrollIntoView({behavior:'smooth',block:'nearest'});
+ });
+})();
