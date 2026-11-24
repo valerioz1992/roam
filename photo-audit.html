@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ROAM · Verifica fotografie</title>
+<style>
+:root{color-scheme:light;--ink:#183b37;--teal:#17665d;--muted:#64716e;--line:#dce5e1;--bg:#f4f7f4}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
+header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);padding:16px max(18px,calc((100vw - 1400px)/2))}
+h1{font-size:22px;margin:0 0 4px}.sub{color:var(--muted);font-size:13px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px;align-items:center}
+button,select,input{font:inherit;border:1px solid var(--line);border-radius:10px;padding:9px 12px;background:white;color:var(--ink)}
+button{cursor:pointer;font-weight:650}button.primary{background:var(--teal);color:white;border-color:var(--teal)}
+#progress{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px}
+main{max-width:1400px;margin:18px auto;padding:0 18px}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:14px}
+.card{background:white;border:1px solid var(--line);border-radius:15px;overflow:hidden;min-width:0}
+.photo{height:165px;background:#e6ece8;display:grid;place-items:center;color:var(--muted);font-size:13px}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.body{padding:12px}.name{font-weight:750;font-size:16px}.meta{font-size:12px;color:var(--muted);margin:4px 0 9px;overflow-wrap:anywhere}
+.actions{display:flex;gap:6px}.actions button{flex:1;padding:7px 4px;font-size:12px}.ok{border-color:#7db99a}.bad{border-color:#d99b9b}
+.state{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}.state.pending{color:#9a741c}.state.good{color:#23734b}.state.bad{color:#b43b3b}.state.missing{color:#b43b3b}
+.source{display:block;font-size:11px;color:var(--teal);margin-top:8px;overflow-wrap:anywhere}
+.note{background:#fff7e2;border:1px solid #ead9a8;border-radius:12px;padding:12px;margin:0 0 15px;font-size:13px}
+@media(max-width:600px){header{position:static}#grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.photo{height:120px}.body{padding:9px}.actions{flex-wrap:wrap}}
+</style></head>
+<body>
+<header><h1>ROAM · Audit fotografie</h1><div class="sub">Controllo tecnico e revisione visiva delle immagini di tutte le destinazioni del database.</div>
+<div class="tools"><span id="progress">Caricamento database…</span><select id="filter"><option value="all">Tutte le destinazioni</option><option value="pending">Da verificare</option><option value="good">Confermate</option><option value="bad">Da sostituire</option><option value="missing">Senza immagine</option></select><input id="search" placeholder="Cerca Paese…" aria-label="Cerca Paese"><button id="load" class="primary">Carica / riprova</button><button id="csv">Esporta report CSV</button></div></header>
+<main><p class="note">Le immagini vengono recuperate da Wikimedia Commons e controllate per caricamento, dimensioni e fonte. Il giudizio “Paese rappresentato correttamente” richiede una verifica visiva: usa Conferma o Sostituisci dopo aver guardato ogni foto. Le scelte vengono salvate in questo browser e possono essere esportate in CSV.</p><div id="grid"></div></main>
+<script>
+const approved={'Giappone':'Mount Fuji','Egitto':'Giza pyramid complex','Thailandia':'Phi Phi Islands','Nuova Zelanda':'Aoraki Mount Cook','Perù':'Machu Picchu','Marocco':'Chefchaouen','Sud Africa':'Table Mountain','Islanda':'Skógafoss','Norvegia':'Lofoten'};
+const blocked=/^(Italia|Antartide|Terre australi e antartiche francesi|Isole Heard e McDonald|Territorio britannico dell’Oceano Indiano)$/i;
+const excluded=/(flag|map|coat of arms|logo|icon|seal|emblem|locator|blank map|outline map|satellite image)/i;
+let countries=[],records=new Map(),running=false;
+const $=id=>document.getElementById(id);
+const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+function saved(){try{return JSON.parse(localStorage.getItem('roam_photo_audit')||'{}')}catch{return {}}}
+function persist(){localStorage.setItem('roam_photo_audit',JSON.stringify(Object.fromEntries([...records].map(([k,v])=>[k,{review:v.review||'pending',file:v.file||'',url:v.url||'',license:v.license||'',checkedAt:v.checkedAt||''}]))))}
+async function commons(name){
+ if(blocked.test(name))return {status:'excluded'};
+ const article=approved[name];
+ if(article){for(const lang of ['en','it']){try{const r=await fetch('https://'+lang+'.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(article));if(!r.ok)continue;const d=await r.json();const src=d.originalimage?.source||d.thumbnail?.source;if(src)return {status:'loaded',src,file:article,source:'https://'+lang+'.wikipedia.org/wiki/'+encodeURIComponent(article),license:'Verificare licenza nella pagina Wikipedia/Wikimedia'};}catch{}}}
+ const tokens=norm(name).split(/[^a-z0-9]+/).filter(x=>x.length>2);
+ const queries=[name+' iconic landscape travel',name+' famous natural landmark',name+' tourism scenery'];
+ for(const q of queries){try{
+  const api='https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch='+encodeURIComponent(q)+'&gsrnamespace=6&gsrlimit=35&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1200&format=json&origin=*';
+  const r=await fetch(api);if(!r.ok)continue;const d=await r.json();
+  const candidates=Object.values(d.query?.pages||{}).filter(p=>{const i=p.imageinfo?.[0];return i?.thumburl&&i.width>=1000&&i.height>=500&&!excluded.test(p.title||'')&&!/\.svg/i.test(p.title||'')})
+  .map(p=>{const i=p.imageinfo[0],title=norm(p.title);let score=0;for(const t of tokens)if(title.includes(t))score+=7;if(/landscape|mountain|waterfall|beach|coast|island|national park|valley|lake|desert|temple|city|old town|bay|fjord|volcano/i.test(title))score+=3;if(/tourism|travel|scenery|panorama/i.test(title))score+=1;return {i,title:p.title,score}})
+  .sort((a,b)=>b.score-a.score);
+  if(candidates.length){const x=candidates[0],meta=x.i.extmetadata||{};return {status:'loaded',src:x.i.thumburl,file:x.title,source:'https://commons.wikimedia.org/wiki/'+encodeURIComponent(x.title.replace(/^File:/,'')),license:meta.LicenseShortName?.value||'Licenza non indicata',width:x.i.width,height:x.i.height};}
+ }catch{}}
+ return {status:'missing'};
+}
+function card(c){const v=records.get(c.Paese)||{review:'pending',status:'pending'};const state=v.review==='good'?'Confermata':v.review==='bad'?'Da sostituire':v.status==='missing'?'Immagine mancante':v.status==='excluded'?'Esclusa dal recupero automatico':'Da verificare';const cls=v.review==='good'?'good':v.review==='bad'?'bad':v.status==='missing'?'missing':'pending';return '<article class="card" data-name="'+esc(c.Paese)+'"><div class="photo">'+(v.src?'<img loading="lazy" src="'+esc(v.src)+'" alt="Foto candidata per '+esc(c.Paese)+'" onerror="this.parentElement.textContent=\'Errore caricamento immagine\';this.closest(\'.card\').dataset.failed=\'1\'">':v.status==='excluded'?'Esclusa dal recupero automatico':'In attesa immagine…')+'</div><div class="body"><div class="name">'+esc(c.Paese)+'</div><div class="meta">'+esc(c.Continente||'')+' · '+(v.width&&v.height?v.width+' × '+v.height+' px':'dimensioni non disponibili')+'</div><div class="state '+cls+'">'+state+'</div><div class="actions"><button class="ok" data-review="good" data-country="'+esc(c.Paese)+'">Conferma</button><button class="bad" data-review="bad" data-country="'+esc(c.Paese)+'">Sostituisci</button></div>'+(v.source?'<a class="source" target="_blank" rel="noopener" href="'+esc(v.source)+'">Fonte: '+esc(v.file)+' · '+esc(v.license||'licenza da verificare')+'</a>':'')+'</div></article>'}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){const f=$('filter').value,q=norm($('search').value);$('grid').innerHTML=countries.filter(c=>{const v=records.get(c.Paese)||{};const state=v.review==='good'?'good':v.review==='bad'?'bad':v.status==='missing'?'missing':'pending';return (f==='all'||state===f)&&(!q||norm(c.Paese).includes(q))}).map(card).join('');const vals=[...records.values()];$('progress').textContent=countries.length+' destinazioni · '+vals.filter(v=>v.review==='good').length+' confermate · '+vals.filter(v=>v.review==='bad').length+' da sostituire · '+vals.filter(v=>v.status==='missing').length+' senza immagine'}
+async function loadAll(){if(running)return;running=true;$('load').disabled=true;let idx=0;async function worker(){while(idx<countries.length){const c=countries[idx++];if(records.get(c.Paese)?.src||records.get(c.Paese)?.status==='missing'||records.get(c.Paese)?.status==='excluded')continue;const old=records.get(c.Paese)||{};const v=await commons(c.Paese);records.set(c.Paese,{...old,...v,review:old.review||'pending'});persist();render()}}await Promise.all(Array.from({length:5},worker));running=false;$('load').disabled=false;render()}
+$('grid').addEventListener('click',e=>{const b=e.target.closest('[data-review]');if(!b)return;const n=b.dataset.country,v=records.get(n)||{};records.set(n,{...v,review:b.dataset.review,checkedAt:new Date().toISOString()});persist();render()});
+$('filter').onchange=render;$('search').oninput=render;$('load').onclick=loadAll;
+$('csv').onclick=()=>{const rows=[['Paese','Stato caricamento','Revisione','File','Fonte','Licenza','Larghezza','Altezza','Data verifica'],...countries.map(c=>{const v=records.get(c.Paese)||{};return [c.Paese,v.status||'non controllata',v.review||'pending',v.file||'',v.source||'',v.license||'',v.width||'',v.height||'',v.checkedAt||'']})];const csv=rows.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(';')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));a.download='roam-photo-audit.csv';a.click();URL.revokeObjectURL(a.href)};
+(async()=>{try{const r=await fetch('./countries.json?audit='+Date.now());countries=await r.json();const prior=saved();for(const c of countries)if(prior[c.Paese])records.set(c.Paese,prior[c.Paese]);render();loadAll()}catch(e){$('progress').textContent='Errore database: '+e.message}})();
+</script></body></html>
