@@ -23,6 +23,11 @@ async function fetchCountryPhoto(name){
  if(photoPending.has(name))return null;
  photoPending.add(name);
  let result=null;
+ const localNames=new Set(['Afghanistan','Albania','Algeria','Andorra','Angola']);
+ if(localNames.has(name)){
+  const localUrl='./assets/country-photos/'+encodeURIComponent(name)+'.webp';
+  try{const check=await fetch(localUrl,{method:'HEAD',cache:'no-store'});if(check.ok){photoPending.delete(name);photoCache.set(name,localUrl);return localUrl;}}catch(e){}
+ }
  const article=PHOTO_ARTICLES[name];
  const queries=article
   ? [name+' '+article+' landscape',article+' '+name+' travel photography',name+' iconic landscape']
