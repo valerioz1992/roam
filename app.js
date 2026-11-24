@@ -268,6 +268,9 @@ else{document.getElementById('installNav').hidden=false;window.addEventListener(
  document.getElementById('openDiy').addEventListener('click',()=>{closeMenu();home.hidden=true;page.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})});
  document.getElementById('diyBack').addEventListener('click',()=>{page.classList.remove('active');home.hidden=false;window.scrollTo({top:0,behavior:'smooth'})});
  document.querySelectorAll('[data-menu-placeholder]').forEach(button=>button.addEventListener('click',()=>{closeMenu();alert(button.dataset.menuPlaceholder+' · Questa sezione arriverà presto su ROAM.')}));
+ document.getElementById('menuExplore').addEventListener('click',()=>{closeMenu();page.classList.remove('active');home.hidden=false;window.scrollTo({top:0,behavior:'smooth'})});
+ document.getElementById('menuFavorites').addEventListener('click',()=>{closeMenu();page.classList.remove('active');home.hidden=false;document.getElementById('favBtn').click();document.getElementById('favNav').scrollIntoView({behavior:'smooth',block:'center'})});
+ document.getElementById('menuRoute').addEventListener('click',()=>{closeMenu();page.classList.remove('active');home.hidden=false;document.getElementById('routefinder').scrollIntoView({behavior:'smooth',block:'start'})});
  const form=document.getElementById('diyForm'),result=document.getElementById('diyResult');
  form.addEventListener('submit',event=>{
   event.preventDefault();
