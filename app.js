@@ -260,31 +260,23 @@ else{document.getElementById('installNav').hidden=false;window.addEventListener(
 })();
 
 
-/* ROAM navigation and do-it-yourself trip planner */
+/* ROAM navigation: isolated, defensive handlers */
 (()=>{
- const trigger=document.getElementById('menuTrigger'),drawer=document.getElementById('menuDrawer'),backdrop=document.getElementById('menuBackdrop');
- const home=document.getElementById('homeMain'),page=document.getElementById('diyPage');
- if(!trigger||!drawer||!page||!home)return;
- function closeMenu(){drawer.classList.remove('open');backdrop.classList.remove('open');drawer.setAttribute('aria-hidden','true');trigger.setAttribute('aria-expanded','false')}
- function openMenu(){drawer.classList.add('open');backdrop.classList.add('open');drawer.setAttribute('aria-hidden','false');trigger.setAttribute('aria-expanded','true')}
- trigger.addEventListener('click',()=>drawer.classList.contains('open')?closeMenu():openMenu());
- document.getElementById('menuClose').addEventListener('click',closeMenu);
- backdrop.addEventListener('click',closeMenu);
- document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
- document.getElementById('openDiy').addEventListener('click',()=>{closeMenu();home.hidden=true;page.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})});
- document.getElementById('diyBack').addEventListener('click',()=>{page.classList.remove('active');home.hidden=false;window.scrollTo({top:0,behavior:'smooth'})});
- document.querySelectorAll('[data-menu-placeholder]').forEach(button=>button.addEventListener('click',()=>{closeMenu();alert(button.dataset.menuPlaceholder+' · Questa sezione arriverà presto su ROAM.')}));
- document.getElementById('menuExplore').addEventListener('click',()=>{closeMenu();page.classList.remove('active');home.hidden=false;window.scrollTo({top:0,behavior:'smooth'})});
- document.getElementById('menuFavorites').addEventListener('click',()=>{closeMenu();page.classList.remove('active');home.hidden=false;document.getElementById('favBtn').click();document.getElementById('favNav').scrollIntoView({behavior:'smooth',block:'center'})});
- document.getElementById('menuRoute').addEventListener('click',()=>{closeMenu();page.classList.remove('active');home.hidden=false;document.getElementById('routefinder').scrollIntoView({behavior:'smooth',block:'start'})});
- const form=document.getElementById('diyForm'),result=document.getElementById('diyResult');
- form.addEventListener('submit',event=>{
-  event.preventDefault();
-  const origin=document.getElementById('diyOrigin').value.trim(),destination=document.getElementById('diyDestination').value.trim();
-  const duration=document.getElementById('diyDuration').value,budget=document.getElementById('diyBudget').value,style=document.getElementById('diyStyle').value,company=document.getElementById('diyCompany').value,notes=document.getElementById('diyNotes').value.trim();
-  const safe=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  result.innerHTML='<h3>La tua idea prende forma ✨</h3><p><strong>'+safe(origin)+' → '+safe(destination)+'</strong></p><p>'+safe(duration)+' · '+safe(budget)+'</p><p>'+safe(style)+' · '+safe(company)+'</p>'+(notes?'<p><strong>Da ricordare:</strong> '+safe(notes)+'</p>':'')+'<p>Prossimo passo: scegli le tappe principali, raggruppa le visite per zona e lascia un po’ di spazio alle scoperte improvvisate.</p>';
-  result.classList.add('show');
-  result.scrollIntoView({behavior:'smooth',block:'nearest'});
- });
+ const byId=id=>document.getElementById(id);
+ const trigger=byId('menuTrigger'),drawer=byId('menuDrawer'),backdrop=byId('menuBackdrop');
+ if(trigger&&drawer&&backdrop){
+  const close=()=>{drawer.classList.remove('open');backdrop.classList.remove('open');drawer.setAttribute('aria-hidden','true');trigger.setAttribute('aria-expanded','false');document.body.style.overflow=''};
+  const open=()=>{drawer.classList.add('open');backdrop.classList.add('open');drawer.setAttribute('aria-hidden','false');trigger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'};
+  trigger.addEventListener('click',e=>{e.preventDefault();drawer.classList.contains('open')?close():open()});
+  byId('menuClose')?.addEventListener('click',close);
+  backdrop.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+  byId('menuExplore')?.addEventListener('click',()=>{close();byId('homeMain')?.scrollIntoView({behavior:'smooth'})});
+  byId('menuFavorites')?.addEventListener('click',()=>{close();byId('favBtn')?.click();byId('favNav')?.scrollIntoView({behavior:'smooth',block:'center'})});
+  byId('menuRoute')?.addEventListener('click',()=>{close();byId('routefinder')?.scrollIntoView({behavior:'smooth',block:'start'})});
+  byId('openDiy')?.addEventListener('click',()=>{close();const home=byId('homeMain'),page=byId('diyPage');if(home&&page){home.hidden=true;page.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}});
+  byId('diyBack')?.addEventListener('click',()=>{byId('diyPage')?.classList.remove('active');if(byId('homeMain'))byId('homeMain').hidden=false;window.scrollTo({top:0,behavior:'smooth'})});
+ }
+ const form=byId('diyForm'),result=byId('diyResult');
+ if(form&&result)form.addEventListener('submit',event=>{event.preventDefault();const val=id=>byId(id)?.value?.trim()||'';const safe=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));result.innerHTML='<h3>La tua idea prende forma ✨</h3><p><strong>'+safe(val('diyOrigin'))+' → '+safe(val('diyDestination'))+'</strong></p><p>'+safe(val('diyDuration'))+' · '+safe(val('diyBudget'))+'</p><p>'+safe(val('diyStyle'))+' · '+safe(val('diyCompany'))+'</p>'+(val('diyNotes')?'<p><strong>Da ricordare:</strong> '+safe(val('diyNotes'))+'</p>':'');result.classList.add('show')});
 })();
