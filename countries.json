@@ -565,7 +565,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
       "beach",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -644,7 +645,8 @@
       "nature",
       "safari",
       "adventure",
-      "mountain"
+      "mountain",
+      "culture"
     ]
   },
   {
@@ -751,7 +753,8 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
-      "beach"
+      "beach",
+      "culture"
     ]
   },
   {
@@ -985,7 +988,8 @@
     "Tipi di viaggio": [
       "beach",
       "nature",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -1098,7 +1102,10 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Tipi di viaggio": []
+    "Tipi di viaggio": [
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1135,7 +1142,8 @@
       "adventure",
       "mountain",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -1486,7 +1494,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
-      "beach"
+      "beach",
+      "culture"
     ]
   },
   {
@@ -1689,7 +1698,8 @@
       "adventure",
       "mountain",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -1840,7 +1850,8 @@
     "Tipi di viaggio": [
       "beach",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -2009,7 +2020,8 @@
     "Tipi di viaggio": [
       "nature",
       "mountain",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -2050,7 +2062,8 @@
       "nature",
       "mountain",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -2085,7 +2098,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
-      "mountain"
+      "mountain",
+      "culture"
     ]
   },
   {
@@ -2319,7 +2333,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
       "beach",
-      "nature"
+      "nature",
+      "culture"
     ]
   },
   {
@@ -2357,7 +2372,8 @@
     "Tipi di viaggio": [
       "nature",
       "mountain",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -2395,7 +2411,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
       "nature",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -2432,7 +2449,8 @@
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
       "beach",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -2505,7 +2523,8 @@
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
       "nature",
-      "mountain"
+      "mountain",
+      "culture"
     ]
   },
   {
@@ -2546,7 +2565,8 @@
       "adventure",
       "mountain",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -2582,7 +2602,8 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
-      "beach"
+      "beach",
+      "culture"
     ]
   },
   {
@@ -2624,7 +2645,8 @@
       "nature",
       "adventure",
       "mountain",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -2698,7 +2720,10 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Tipi di viaggio": []
+    "Tipi di viaggio": [
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2738,7 +2763,8 @@
     "Tipi di viaggio": [
       "nature",
       "mountain",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -2772,7 +2798,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
-      "beach"
+      "beach",
+      "culture"
     ]
   },
   {
@@ -2918,7 +2945,8 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
-      "nature"
+      "nature",
+      "culture"
     ]
   },
   {
@@ -2954,7 +2982,8 @@
     "Tipi di viaggio": [
       "beach",
       "nature",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -3096,7 +3125,8 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
-      "nature"
+      "nature",
+      "culture"
     ]
   },
   {
@@ -3134,7 +3164,8 @@
     "Tipi di viaggio": [
       "nature",
       "adventure",
-      "mountain"
+      "mountain",
+      "culture"
     ]
   },
   {
@@ -3174,7 +3205,8 @@
       "nature",
       "mountain",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -3266,7 +3298,8 @@
     "Tipi di viaggio": [
       "beach",
       "nature",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -3378,7 +3411,8 @@
     "Tipi di viaggio": [
       "nature",
       "mountain",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -3414,7 +3448,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
       "beach",
-      "nature"
+      "nature",
+      "culture"
     ]
   },
   {
@@ -3491,7 +3526,8 @@
       "beach",
       "nature",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -3528,7 +3564,8 @@
       "beach",
       "nature",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -3603,7 +3640,8 @@
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
       "beach",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -3676,7 +3714,8 @@
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
       "adventure",
-      "mountain"
+      "mountain",
+      "culture"
     ]
   },
   {
@@ -3715,7 +3754,8 @@
       "beach",
       "nature",
       "adventure",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -3754,7 +3794,8 @@
       "beach",
       "nature",
       "mountain",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -3984,7 +4025,8 @@
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
       "nature",
-      "adventure"
+      "adventure",
+      "culture"
     ]
   },
   {
@@ -4274,7 +4316,8 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
-      "beach"
+      "beach",
+      "culture"
     ]
   },
   {
@@ -4308,7 +4351,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
       "mountain",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -4344,7 +4388,8 @@
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
       "nature",
-      "mountain"
+      "mountain",
+      "culture"
     ]
   },
   {
@@ -4380,7 +4425,10 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
-    "Tipi di viaggio": []
+    "Tipi di viaggio": [
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4415,7 +4463,8 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -4450,7 +4499,8 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
-      "mountain"
+      "mountain",
+      "culture"
     ]
   },
   {
@@ -4484,7 +4534,10 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
-    "Tipi di viaggio": []
+    "Tipi di viaggio": [
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4521,7 +4574,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
-      "beach"
+      "beach",
+      "culture"
     ]
   },
   {
@@ -4554,7 +4608,10 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Tipi di viaggio": []
+    "Tipi di viaggio": [
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4590,7 +4647,8 @@
     "Tipi di viaggio": [
       "beach",
       "nature",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -4632,7 +4690,8 @@
       "beach",
       "nature",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -4670,7 +4729,8 @@
       "beach",
       "nature",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -4756,7 +4816,8 @@
       "nature",
       "mountain",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -4791,7 +4852,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -4830,7 +4892,8 @@
       "beach",
       "nature",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -4865,7 +4928,10 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
-    "Tipi di viaggio": []
+    "Tipi di viaggio": [
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4932,7 +4998,8 @@
     "Tipi di viaggio": [
       "nature",
       "mountain",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -5110,7 +5177,8 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -5148,7 +5216,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
-      "beach"
+      "beach",
+      "culture"
     ]
   },
   {
@@ -5182,7 +5251,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
       "nature",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -5216,7 +5286,8 @@
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
       "beach",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -5356,7 +5427,8 @@
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
       "mountain",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -5396,7 +5468,8 @@
       "beach",
       "nature",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -5439,7 +5512,8 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -5475,7 +5549,8 @@
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
     "Tipi di viaggio": [
       "nature",
-      "mountain"
+      "mountain",
+      "culture"
     ]
   },
   {
@@ -5518,7 +5593,8 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Tipi di viaggio": [
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -5550,7 +5626,10 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Tipi di viaggio": []
+    "Tipi di viaggio": [
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Europa",
@@ -5581,7 +5660,10 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Tipi di viaggio": []
+    "Tipi di viaggio": [
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Europa",
@@ -5691,7 +5773,8 @@
       "beach",
       "nature",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -5800,7 +5883,8 @@
       "nature",
       "mountain",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -5834,7 +5918,10 @@
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
     "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
-    "Tipi di viaggio": []
+    "Tipi di viaggio": [
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Nord America",
@@ -5919,7 +6006,8 @@
       "beach",
       "nature",
       "adventure",
-      "city"
+      "city",
+      "culture"
     ]
   },
   {
@@ -6468,7 +6556,8 @@
       "adventure",
       "mountain",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -6509,7 +6598,8 @@
     "Tipi di viaggio": [
       "nature",
       "adventure",
-      "mountain"
+      "mountain",
+      "culture"
     ]
   },
   {
@@ -6558,7 +6648,8 @@
       "nature",
       "adventure",
       "city",
-      "roadtrip"
+      "roadtrip",
+      "culture"
     ]
   },
   {
@@ -6798,7 +6889,8 @@
       "beach",
       "nature",
       "adventure",
-      "mountain"
+      "mountain",
+      "culture"
     ]
   },
   {
