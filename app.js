@@ -185,6 +185,6 @@ else{document.getElementById('installNav').hidden=false;window.addEventListener(
  }
  picker.addEventListener('change',()=>applyLanguage(picker.value));
  const observer=new MutationObserver(records=>records.forEach(record=>record.addedNodes.forEach(translateNode)));
- observer.observe(document.body,{childList:true,subtree:true});
+ observer.observe(document.body,{childList:true,characterData:true,subtree:true});
  applyLanguage(['it','en','es'].includes(lang)?lang:'it');
 })();
