@@ -152,6 +152,7 @@ const installDialog=document.getElementById('installDialog');
 const installAction=document.getElementById('installAction');
 const installHelp=document.getElementById('installHelp');
 const isStandalone=()=>window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+const isSmartphone=()=>/Android.*Mobile|iPhone|iPod|Windows Phone|Mobile/i.test(navigator.userAgent)&&!/iPad/i;
 const isAppleMobile=()=>/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
 function showInstallHelp(){
  const apple=isAppleMobile();
@@ -178,8 +179,9 @@ installAction?.addEventListener('click',async()=>{
  showInstallHelp();
 });
 document.getElementById('installLater')?.addEventListener('click',()=>installDialog.close());
-if(isStandalone()){const nav=document.getElementById('installNav');if(nav)nav.hidden=true;}
-else{document.getElementById('installNav').hidden=false;window.addEventListener('load',()=>setTimeout(openInstallDialog,250));}
+const installNav=document.getElementById('installNav');
+if(isStandalone()||!isSmartphone()){if(installNav)installNav.hidden=true;}
+else{if(installNav)installNav.hidden=false;window.addEventListener('load',()=>setTimeout(openInstallDialog,250));}
 
 
 /* ROAM multilingual interface */
