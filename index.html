@@ -78,7 +78,7 @@ function choose(lang){picker.value=lang;document.documentElement.lang=lang;local
 flags.forEach(b=>b.addEventListener('click',()=>choose(b.dataset.language)));
 const saved=localStorage.getItem('roam_language');if(['it','en','es'].includes(saved))choose(saved);else choose('it');
 })();
-</script><script src="./app.js?build=46"></script>
+</script><script src="./app.js?build=47"></script>
 <script>
 (()=>{const ids=['total','seasonCoverage','visaCoverage','methodCoverage'];fetch('./countries.json?build=34',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(data=>{if(!Array.isArray(data)||!data.length)throw new Error('Database vuoto');document.getElementById(ids[0]).textContent=data.length;document.getElementById(ids[1]).textContent=data.filter(c=>String(c['Periodo migliore']||'').trim()).length+'/'+data.length;document.getElementById(ids[2]).textContent=data.filter(c=>String(c['Visto per cittadini italiani']||'').trim()).length+'/'+data.length;document.getElementById(ids[3]).textContent=data.filter(c=>String(c['Modalità richiesta visto']||'').trim()).length+'/'+data.length;}).catch(err=>{console.error('ROAM counters:',err);ids.forEach(id=>{const el=document.getElementById(id);if(el)el.textContent='—'});});})();
 </script></body></html>
