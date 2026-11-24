@@ -183,6 +183,7 @@ else{document.getElementById('installNav').hidden=false;window.addEventListener(
  'Verifica quale documento è accettato e la sua validità residua.':'Comprueba qué documento se acepta y su vigencia restante.','Controlla requisiti di ingresso, eventuale visto e modalità di richiesta.':'Consulta los requisitos de entrada, el visado y cómo solicitarlo.','Consulta gli avvisi di sicurezza, la situazione sanitaria e le indicazioni sulla mobilità.':'Consulta las alertas de seguridad, la situación sanitaria y las indicaciones de movilidad.','Annota i contatti dell’Ambasciata o del Consolato italiano.':'Guarda los contactos de la Embajada o el Consulado italiano.','Nessuna valutazione inventata.':'Sin valoraciones inventadas.','Recupero del tasso di cambio…':'Obteniendo el tipo de cambio…','Cambio temporaneamente non disponibile. Riprova più tardi.':'Cambio temporalmente no disponible. Inténtalo más tarde.','Calcolo in corso…':'Calculando…','Inserisci sia il luogo di partenza sia la destinazione.':'Introduce el origen y el destino.','Prova con città e Paese.':'Prueba con una ciudad y un país.','Partenza e destinazione sembrano coincidere.':'El origen y el destino parecen coincidir.'
  }};
  Object.assign(translations.en,{
+  'Importo in euro (€)':'Amount in euros (€)','Importo in valuta locale':'Amount in local currency','Tasso indicativo, non include commissioni':'Indicative rate; fees not included',
   'Confronta':'Compare','Confronta:':'Compare:','Seleziona':'Select','risultati':'results','Risultati':'Results',
   'DESTINAZIONI NEL DATABASE':'DESTINATIONS IN DATABASE','Paesi con il periodo migliore per visitare':'Countries with the best time to visit',
   'Paesi che richiedono il visto':'Countries requiring a visa','Da definire':'To be defined','Da verificare su fonte ufficiale':'Check official source',
@@ -196,6 +197,7 @@ else{document.getElementById('installNav').hidden=false;window.addEventListener(
   'Valuta non disponibile nel database':'Currency not available in the database'
  });
  Object.assign(translations.es,{
+  'Importo in euro (€)':'Importe en euros (€)','Importo in valuta locale':'Importe en moneda local','Tasso indicativo, non include commissioni':'Tipo indicativo; no incluye comisiones',
   'Confronta':'Comparar','Confronta:':'Comparar:','Seleziona':'Seleccionar','risultati':'resultados','Risultati':'Resultados',
   'DESTINAZIONI NEL DATABASE':'DESTINOS EN LA BASE DE DATOS','Paesi con il periodo migliore per visitare':'Países con la mejor época para visitar',
   'Paesi che richiedono il visto':'Países que requieren visado','Da definire':'Por definir','Da verificare su fonte ufficiale':'Consultar fuente oficial',
