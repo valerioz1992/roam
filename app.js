@@ -117,3 +117,74 @@ installAction?.addEventListener('click',async()=>{
 document.getElementById('installLater')?.addEventListener('click',()=>installDialog.close());
 if(isStandalone()){const nav=document.getElementById('installNav');if(nav)nav.hidden=true;}
 else{document.getElementById('installNav').hidden=false;window.addEventListener('load',()=>setTimeout(openInstallDialog,250));}
+
+
+/* ROAM multilingual interface */
+(()=>{
+ const picker=document.getElementById('languagePicker');
+ if(!picker)return;
+ const translations={
+ en:{
+ 'FIND YOUR NEXT DESTINATION':'FIND YOUR NEXT DESTINATION','↓ Installa app':'↓ Install app','♡ Preferiti ':'♡ Favorites ','Azzera filtri':'Reset filters',
+ 'Il mondo, a portata di viaggio':'The world, within reach','La prossima meta':'Your next destination','inizia da qui.':'starts here.',
+ 'Esplora le destinazioni, filtra in base al periodo e alle tue esigenze, salva i luoghi che ti ispirano e confrontali.':'Explore destinations, filter by season and your needs, save places that inspire you and compare them.',
+ 'DESTINAZIONI NEL DATABASE':'DESTINATIONS IN DATABASE','Completezza dei dati':'Data completeness','Paesi con periodo indicato':'Countries with best season listed','Paesi con dato visto':'Countries with visa information','Paesi con modalità visto':'Countries with visa method',
+ 'Pianifica gli spostamenti':'Plan your journey','Come arrivare':'How to get there','Stima le alternative di viaggio e confronta i costi orientativi. Per tariffe e orari reali verifica poi gli operatori.':'Estimate travel options and compare indicative costs. Check operators for actual fares and schedules.',
+ 'Da dove parti?':'Where are you leaving from?','Città o aeroporto':'City or airport','Inverti partenza e destinazione':'Swap origin and destination','Dove vuoi arrivare?':'Where do you want to go?','Mezzo':'Transport','Tutti i mezzi':'All transport','Aereo':'Flight','Treno':'Train','Autobus':'Bus','Auto':'Car','Calcola alternative':'Compare options',
+ 'Le fasce sono stime orientative, non tariffe disponibili.':'Price ranges are estimates, not available fares.','Filtri di ricerca':'Search filters','Cerca destinazione':'Search destination','Es. Giappone, mare, safari…':'E.g. Japan, beach, safari…','Mese':'Month','Tutti i mesi':'All months','Continente':'Continent','Tutti':'All','Visto':'Visa','Qualsiasi':'Any','Senza visto':'Visa-free','Visto richiesto':'Visa required','Online / eVisa':'Online / eVisa','Da verificare':'To be checked',
+ 'Tutti i Paesi':'All countries','↗ Condividi ROAM':'↗ Share ROAM','♡ Solo preferiti':'♡ Favorites only','✦ Sorprendimi':'✦ Surprise me','Ordina':'Sort','Esplora le destinazioni':'Explore destinations','Caricamento destinazioni…':'Loading destinations…',
+ 'Porta ROAM con te':'Take ROAM with you','Installa l’app sul telefono per ritrovare le tue destinazioni e pianificare i prossimi viaggi in modo rapido.':'Install the app on your phone to access your destinations and plan your next trips quickly.','Installa ROAM':'Install ROAM','Continua sul sito':'Continue to website','Confronta':'Compare','selezionati':'selected','Scheda destinazione':'Destination overview','Prima di partire':'Before you go','Controlli pratici per':'Practical checks for','Apri Viaggiare Sicuri ↗':'Open Viaggiare Sicuri ↗','Documenti di viaggio ↗':'Travel documents ↗','Valutazione ROAM':'ROAM rating','Valutazione in corso':'Rating in progress','Cambio valuta':'Currency exchange','Euro ↔ valuta locale':'Euro ↔ local currency','Non disponibile':'Not available','Dato non disponibile':'Data unavailable','Dato non inserito':'Not entered','Periodo non indicato':'Season not specified','Confronta destinazioni':'Compare destinations','Carburante stimato':'Estimated fuel','Prezzo indicativo per persona · sola andata':'Indicative price per person · one way','Tempo orientativo:':'Estimated time:','Verifica tratte e tariffe ↗':'Check routes and fares ↗',
+ 'Nessuna destinazione corrisponde ai filtri.':'No destinations match your filters.','Prova a modificare la ricerca.':'Try changing your search.','Apri scheda →':'Open details →','Preferito':'Favorite','Paese':'Country','Continente':'Continent','Periodo migliore':'Best time to visit','Visto per cittadini italiani':'Visa for Italian citizens','Modalità richiesta visto':'Visa application method','Budget giornaliero':'Daily budget','Durata consigliata':'Recommended duration','Esperienze':'Experiences','Clima':'Climate','Completezza del dato visto':'Visa data completeness','Capitale':'Capital','Lingue':'Languages','Valuta':'Currency','Fuso orario':'Time zone','Popolazione':'Population','Superficie':'Area',
+ 'Verifica quale documento è accettato e la sua validità residua.':'Check which travel document is accepted and its remaining validity.','Controlla requisiti di ingresso, eventuale visto e modalità di richiesta.':'Check entry requirements, any visa and application method.','Consulta gli avvisi di sicurezza, la situazione sanitaria e le indicazioni sulla mobilità.':'Check safety notices, health information and mobility guidance.','Annota i contatti dell’Ambasciata o del Consolato italiano.':'Save the contact details of the Italian Embassy or Consulate.','Nessuna valutazione inventata.':'No invented ratings.','Recupero del tasso di cambio…':'Loading exchange rate…','Cambio temporaneamente non disponibile. Riprova più tardi.':'Exchange rate temporarily unavailable. Try again later.','Calcolo in corso…':'Calculating…','Inserisci sia il luogo di partenza sia la destinazione.':'Enter both your origin and destination.','Non trovo una località per':'Could not find a location for','Prova con città e Paese.':'Try a city and country.','Partenza e destinazione sembrano coincidere.':'Origin and destination appear to be the same.'
+ },
+ es:{
+ 'FIND YOUR NEXT DESTINATION':'ENCUENTRA TU PRÓXIMO DESTINO','↓ Installa app':'↓ Instalar app','♡ Preferiti ':'♡ Favoritos ','Azzera filtri':'Restablecer filtros',
+ 'Il mondo, a portata di viaggio':'El mundo, al alcance de un viaje','La prossima meta':'Tu próximo destino','inizia da qui.':'empieza aquí.',
+ 'Esplora le destinazioni, filtra in base al periodo e alle tue esigenze, salva i luoghi che ti ispirano e confrontali.':'Explora destinos, filtra por temporada y necesidades, guarda los lugares que te inspiran y compáralos.',
+ 'DESTINAZIONI NEL DATABASE':'DESTINOS EN LA BASE DE DATOS','Completezza dei dati':'Completitud de los datos','Paesi con periodo indicato':'Países con mejor época indicada','Paesi con dato visto':'Países con información de visado','Paesi con modalità visto':'Países con método de visado',
+ 'Pianifica gli spostamenti':'Planifica tus desplazamientos','Come arrivare':'Cómo llegar','Stima le alternative di viaggio e confronta i costi orientativi. Per tariffe e orari reali verifica poi gli operatori.':'Calcula alternativas de viaje y compara costes aproximados. Consulta a los operadores para conocer tarifas y horarios reales.',
+ 'Da dove parti?':'¿Desde dónde sales?','Città o aeroporto':'Ciudad o aeropuerto','Inverti partenza e destinazione':'Intercambiar origen y destino','Dove vuoi arrivare?':'¿Adónde quieres llegar?','Mezzo':'Transporte','Tutti i mezzi':'Todos los medios','Aereo':'Avión','Treno':'Tren','Autobus':'Autobús','Auto':'Coche','Calcola alternative':'Calcular alternativas',
+ 'Le fasce sono stime orientative, non tariffe disponibili.':'Los rangos son estimaciones, no tarifas disponibles.','Filtri di ricerca':'Filtros de búsqueda','Cerca destinazione':'Buscar destino','Es. Giappone, mare, safari…':'Ej. Japón, playa, safari…','Mese':'Mes','Tutti i mesi':'Todos los meses','Continente':'Continente','Tutti':'Todos','Visto':'Visado','Qualsiasi':'Cualquiera','Senza visto':'Sin visado','Visto richiesto':'Visado obligatorio','Online / eVisa':'Online / eVisa','Da verificare':'Por verificar',
+ 'Tutti i Paesi':'Todos los países','↗ Condividi ROAM':'↗ Compartir ROAM','♡ Solo preferiti':'♡ Solo favoritos','✦ Sorprendimi':'✦ Sorpréndeme','Ordina':'Ordenar','Esplora le destinazioni':'Explora los destinos','Caricamento destinazioni…':'Cargando destinos…',
+ 'Porta ROAM con te':'Lleva ROAM contigo','Installa l’app sul telefono per ritrovare le tue destinazioni e pianificare i prossimi viaggi in modo rapido.':'Instala la app en tu móvil para acceder a tus destinos y planificar tus próximos viajes rápidamente.','Installa ROAM':'Instalar ROAM','Continua sul sito':'Continuar en el sitio','Confronta':'Comparar','selezionati':'seleccionados','Scheda destinazione':'Ficha del destino','Prima di partire':'Antes de viajar','Controlli pratici per':'Comprobaciones prácticas para','Apri Viaggiare Sicuri ↗':'Abrir Viaggiare Sicuri ↗','Documenti di viaggio ↗':'Documentos de viaje ↗','Valutazione ROAM':'Valoración ROAM','Valutazione in corso':'Valoración en curso','Cambio valuta':'Cambio de divisa','Euro ↔ valuta locale':'Euro ↔ moneda local','Non disponibile':'No disponible','Dato non disponibile':'Dato no disponible','Dato non inserito':'No introducido','Periodo non indicato':'Temporada no indicada','Confronta destinazioni':'Comparar destinos','Prezzo indicativo per persona · sola andata':'Precio orientativo por persona · solo ida','Tempo orientativo:':'Tiempo estimado:','Verifica tratte e tariffe ↗':'Consultar rutas y tarifas ↗',
+ 'Nessuna destinazione corrisponde ai filtri.':'Ningún destino coincide con los filtros.','Prova a modificare la ricerca.':'Prueba a cambiar la búsqueda.','Apri scheda →':'Abrir ficha →','Preferito':'Favorito','Paese':'País','Periodo migliore':'Mejor época','Visto per cittadini italiani':'Visado para ciudadanos italianos','Modalità richiesta visto':'Método de solicitud del visado','Budget giornaliero':'Presupuesto diario','Durata consigliata':'Duración recomendada','Esperienze':'Experiencias','Clima':'Clima','Completezza del dato visto':'Completitud de los datos de visado','Capitale':'Capital','Lingue':'Idiomas','Valuta':'Moneda','Fuso orario':'Zona horaria','Popolazione':'Población','Superficie':'Superficie',
+ 'Verifica quale documento è accettato e la sua validità residua.':'Comprueba qué documento se acepta y su vigencia restante.','Controlla requisiti di ingresso, eventuale visto e modalità di richiesta.':'Consulta los requisitos de entrada, el visado y cómo solicitarlo.','Consulta gli avvisi di sicurezza, la situazione sanitaria e le indicazioni sulla mobilità.':'Consulta las alertas de seguridad, la situación sanitaria y las indicaciones de movilidad.','Annota i contatti dell’Ambasciata o del Consolato italiano.':'Guarda los contactos de la Embajada o el Consulado italiano.','Nessuna valutazione inventata.':'Sin valoraciones inventadas.','Recupero del tasso di cambio…':'Obteniendo el tipo de cambio…','Cambio temporaneamente non disponibile. Riprova più tardi.':'Cambio temporalmente no disponible. Inténtalo más tarde.','Calcolo in corso…':'Calculando…','Inserisci sia il luogo di partenza sia la destinazione.':'Introduce el origen y el destino.','Prova con città e Paese.':'Prueba con una ciudad y un país.','Partenza e destinazione sembrano coincidere.':'El origen y el destino parecen coincidir.'
+ }};
+ const originals=new WeakMap();
+ const attrs=new WeakMap();
+ const lang=localStorage.getItem('roam_language')||'it';
+ function translateNode(node){
+  if(node.nodeType===Node.TEXT_NODE){
+   if(!originals.has(node))originals.set(node,node.nodeValue);
+   const original=originals.get(node);
+   const dict=translations[picker.value]||{};
+   let value=dict[original]||original;
+   if(picker.value!=='it'){
+    value=value.replace(/^(\d+) risultati$/,'$1 results').replace(/^(\d+) resultados$/,'$1 resultados');
+    if(picker.value==='es')value=value.replace(/^(\d+) results$/,'$1 resultados');
+    if(picker.value==='en')value=value.replace(/^(\d+) selezionati$/,'$1 selected');
+    if(picker.value==='es')value=value.replace(/^(\d+) selezionati$/,'$1 seleccionados');
+   }
+   if(node.nodeValue!==value)node.nodeValue=value;
+  }else if(node.nodeType===Node.ELEMENT_NODE){
+   for(const name of ['placeholder','title','aria-label']){
+    if(node.hasAttribute(name)){
+     let map=attrs.get(node);if(!map){map={};attrs.set(node,map)}
+     if(!(name in map))map[name]=node.getAttribute(name);
+     const original=map[name],value=(translations[picker.value]||{})[original]||original;
+     if(node.getAttribute(name)!==value)node.setAttribute(name,value);
+    }
+   }
+   if(node.childNodes)node.childNodes.forEach(translateNode);
+  }
+ }
+ function applyLanguage(value){
+  picker.value=value;localStorage.setItem('roam_language',value);
+  document.documentElement.lang=value;
+  translateNode(document.body);
+ }
+ picker.addEventListener('change',()=>applyLanguage(picker.value));
+ const observer=new MutationObserver(records=>records.forEach(record=>record.addedNodes.forEach(translateNode)));
+ observer.observe(document.body,{childList:true,subtree:true});
+ applyLanguage(['it','en','es'].includes(lang)?lang:'it');
+})();
