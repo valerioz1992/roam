@@ -378,7 +378,7 @@ const originals=new WeakMap();
  };
  const featureCode=f=>{const p=f.properties||{};return String(p.ISO_A2||p.ISO_A2_EH||p.iso_a2||p.ISO3166_1_Alpha_2||p['ISO3166-1-Alpha-2']||'').toUpperCase()};
  const resolveFeatureName=f=>{const p=f.properties||{};return codeNames.get(featureCode(f))||nameIndex.get(normName(p.NAME_IT))||nameIndex.get(normName(p.ADMIN))||nameIndex.get(normName(p.NAME))||nameIndex.get(normName(p.NAME_LONG))||null};
- const featureStyle=f=>{const name=resolveFeatureName(f);return {color:'#ffffff',weight:.8,fillOpacity:.92,fillColor:name&&visited.has(name)?'#24645a':name&&wish.has(name)?'#d5a83f':'#dce4dc'}};
+ const featureStyle=f=>{const name=resolveFeatureName(f);return {color:'#c6cdd1',weight:.85,opacity:1,fillOpacity:1,fillColor:name&&visited.has(name)?'#24645a':name&&wish.has(name)?'#d5a83f':'#ffffff'}};
  const initMap=()=>{
   if(mapStarted)return;if(!window.L){$('bucketMapHelp').textContent='La mappa interattiva richiede una connessione per caricare il servizio cartografico. Puoi comunque gestire le tue liste qui sopra.';return}
   mapStarted=true;window.roamBucketMap=L.map('bucketMap',{scrollWheelZoom:false,worldCopyJump:true,zoomSnap:.25,zoomDelta:.25,minZoom:.5}).setView([20,0],1);window.roamFitBucketMap=()=>{if(!window.roamBucketMap)return;window.roamBucketMap.fitBounds([[-82,-180],[85,180]],{padding:[12,12],animate:false});};
