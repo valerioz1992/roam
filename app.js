@@ -31,7 +31,7 @@ async function fetchCountryPhoto(name){
   }
  }
  if(!result){
-  const blocked=/(^Antartide$|Terre australi e antartiche francesi|Isole Heard e McDonald|Territorio britannico dell’Oceano Indiano)/i.test(name);
+  const blocked=/(^Italia$|^Antartide$|Terre australi e antartiche francesi|Isole Heard e McDonald|Territorio britannico dell’Oceano Indiano)/i.test(name);
   if(!blocked){
    const queries=[name+' iconic landscape travel',name+' famous natural landmark',name+' tourism scenery'];
    for(const term of queries){
