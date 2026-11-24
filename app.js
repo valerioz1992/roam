@@ -150,6 +150,32 @@ else{document.getElementById('installNav').hidden=false;window.addEventListener(
  'Nessuna destinazione corrisponde ai filtri.':'Ningún destino coincide con los filtros.','Prova a modificare la ricerca.':'Prueba a cambiar la búsqueda.','Apri scheda →':'Abrir ficha →','Preferito':'Favorito','Paese':'País','Periodo migliore':'Mejor época','Visto per cittadini italiani':'Visado para ciudadanos italianos','Modalità richiesta visto':'Método de solicitud del visado','Budget giornaliero':'Presupuesto diario','Durata consigliata':'Duración recomendada','Esperienze':'Experiencias','Clima':'Clima','Completezza del dato visto':'Completitud de los datos de visado','Capitale':'Capital','Lingue':'Idiomas','Valuta':'Moneda','Fuso orario':'Zona horaria','Popolazione':'Población','Superficie':'Superficie',
  'Verifica quale documento è accettato e la sua validità residua.':'Comprueba qué documento se acepta y su vigencia restante.','Controlla requisiti di ingresso, eventuale visto e modalità di richiesta.':'Consulta los requisitos de entrada, el visado y cómo solicitarlo.','Consulta gli avvisi di sicurezza, la situazione sanitaria e le indicazioni sulla mobilità.':'Consulta las alertas de seguridad, la situación sanitaria y las indicaciones de movilidad.','Annota i contatti dell’Ambasciata o del Consolato italiano.':'Guarda los contactos de la Embajada o el Consulado italiano.','Nessuna valutazione inventata.':'Sin valoraciones inventadas.','Recupero del tasso di cambio…':'Obteniendo el tipo de cambio…','Cambio temporaneamente non disponibile. Riprova più tardi.':'Cambio temporalmente no disponible. Inténtalo más tarde.','Calcolo in corso…':'Calculando…','Inserisci sia il luogo di partenza sia la destinazione.':'Introduce el origen y el destino.','Prova con città e Paese.':'Prueba con una ciudad y un país.','Partenza e destinazione sembrano coincidere.':'El origen y el destino parecen coincidir.'
  }};
+ Object.assign(translations.en,{
+  'Confronta':'Compare','Confronta:':'Compare:','Seleziona':'Select','risultati':'results','Risultati':'Results',
+  'DESTINAZIONI NEL DATABASE':'DESTINATIONS IN DATABASE','Paesi con il periodo migliore per visitare':'Countries with the best time to visit',
+  'Paesi che richiedono il visto':'Countries requiring a visa','Da definire':'To be defined','Da verificare su fonte ufficiale':'Check official source',
+  'Da verificare su Viaggiare Sicuri':'Check Viaggiare Sicuri','Visto richiesto':'Visa required','Online o all’arrivo':'Online or on arrival',
+  'All’arrivo':'On arrival','UE':'EU','GEN':'JAN','FEB':'FEB','MAR':'MAR','APR':'APR','MAG':'MAY','GIU':'JUN','LUG':'JUL','AGO':'AUG','SET':'SEP','OTT':'OCT','NOV':'NOV','DIC':'DEC',
+  'Europa':'Europe','Africa':'Africa','Asia':'Asia','America del Nord':'North America','America del Sud':'South America','Oceania':'Oceania','Caraibi':'Caribbean',
+  'Confronta':'Compare','Confronta destinazioni':'Compare destinations','Selezionati':'Selected','Nessuna destinazione disponibile con i filtri attuali.':'No destination matches the current filters.',
+  'Carburante e pedaggi esclusi.':'Fuel and tolls excluded.','Stima editoriale da completare':'Editorial estimate to be completed','Da definire in base all’itinerario':'To be defined based on the itinerary',
+  'Da completare con contenuti verificati':'To be completed with verified content','Consulta il periodo migliore indicato e le fonti meteo locali':'Check the recommended season and local weather sources',
+  'Presente nel database, da verificare su fonte ufficiale':'Present in the database; verify with an official source',
+  'Valuta non disponibile nel database':'Currency not available in the database'
+ });
+ Object.assign(translations.es,{
+  'Confronta':'Comparar','Confronta:':'Comparar:','Seleziona':'Seleccionar','risultati':'resultados','Risultati':'Resultados',
+  'DESTINAZIONI NEL DATABASE':'DESTINOS EN LA BASE DE DATOS','Paesi con il periodo migliore per visitare':'Países con la mejor época para visitar',
+  'Paesi che richiedono il visto':'Países que requieren visado','Da definire':'Por definir','Da verificare su fonte ufficiale':'Consultar fuente oficial',
+  'Da verificare su Viaggiare Sicuri':'Consultar Viaggiare Sicuri','Visto richiesto':'Se requiere visado','Online o all’arrivo':'Online o a la llegada',
+  'All’arrivo':'A la llegada','UE':'UE','GEN':'ENE','FEB':'FEB','MAR':'MAR','APR':'ABR','MAG':'MAY','GIU':'JUN','LUG':'JUL','AGO':'AGO','SET':'SEP','OTT':'OCT','NOV':'NOV','DIC':'DIC',
+  'Europa':'Europa','Africa':'África','Asia':'Asia','America del Nord':'América del Norte','America del Sud':'América del Sur','Oceania':'Oceanía','Caraibi':'Caribe',
+  'Confronta':'Comparar','Confronta destinazioni':'Comparar destinos','Selezionati':'Seleccionados','Nessuna destinazione disponibile con i filtri attuali.':'No hay destinos disponibles con los filtros actuales.',
+  'Stima editoriale da completare':'Estimación editorial pendiente','Da definire in base all’itinerario':'Por definir según el itinerario',
+  'Da completare con contenuti verificati':'Pendiente de contenido verificado','Consulta il periodo migliore indicato e le fonti meteo locali':'Consulta la mejor época indicada y las fuentes meteorológicas locales',
+  'Presente nel database, da verificare su fonte ufficiale':'Incluido en la base de datos; verificar con una fuente oficial',
+  'Valuta non disponibile nel database':'Moneda no disponible en la base de datos'
+ });
  const originals=new WeakMap();
  const attrs=new WeakMap();
  const lang=localStorage.getItem('roam_language')||'it';
@@ -159,6 +185,10 @@ else{document.getElementById('installNav').hidden=false;window.addEventListener(
    const original=originals.get(node);
    const dict=translations[picker.value]||{};
    let value=dict[original]||original;
+   if(picker.value!=='it'&&value===original){
+    const keys=Object.keys(dict).sort((a,b)=>b.length-a.length);
+    for(const key of keys){if(key&&value.includes(key))value=value.split(key).join(dict[key]);}
+   }
    if(picker.value!=='it'){
     value=value.replace(/^(\d+) risultati$/,'$1 results').replace(/^(\d+) resultados$/,'$1 resultados');
     if(picker.value==='es')value=value.replace(/^(\d+) results$/,'$1 resultados');
