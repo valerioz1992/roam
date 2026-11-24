@@ -298,6 +298,7 @@ const originals=new WeakMap();
   byId('routePage')?.classList.remove('active');
   byId('diyPage')?.classList.remove('active');
   byId('budgetPage')?.classList.remove('active');
+  byId('bucketPage')?.classList.remove('active');
   const home=byId('homeMain');
   if(home)home.hidden=false;
   window.scrollTo({top:0,behavior:'smooth'});
@@ -317,6 +318,8 @@ const originals=new WeakMap();
   byId('diyBack')?.addEventListener('click',showHome);
   byId('openBudget')?.addEventListener('click',()=>{close();const home=byId('homeMain'),page=byId('budgetPage');if(home&&page){byId('routePage')?.classList.remove('active');byId('diyPage')?.classList.remove('active');home.hidden=true;page.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}});
   byId('budgetBack')?.addEventListener('click',showHome);
+  byId('openBucket')?.addEventListener('click',()=>{close();const home=byId('homeMain'),page=byId('bucketPage');if(home&&page){byId('routePage')?.classList.remove('active');byId('diyPage')?.classList.remove('active');byId('budgetPage')?.classList.remove('active');home.hidden=true;page.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(window.roamRenderBucket)window.roamRenderBucket();setTimeout(()=>window.roamBucketMap?.invalidateSize(),120)}});
+  byId('bucketBack')?.addEventListener('click',showHome);
  }
  const form=byId('diyForm'),result=byId('diyResult');
  if(form&&result)form.addEventListener('submit',event=>{event.preventDefault();const val=id=>byId(id)?.value?.trim()||'';const safe=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));result.innerHTML='<h3>La tua idea prende forma ✨</h3><p><strong>'+safe(val('diyOrigin'))+' → '+safe(val('diyDestination'))+'</strong></p><p>'+safe(val('diyDuration'))+' · '+safe(val('diyBudget'))+'</p><p>'+safe(val('diyStyle'))+' · '+safe(val('diyCompany'))+'</p>'+(val('diyNotes')?'<p><strong>Da ricordare:</strong> '+safe(val('diyNotes'))+'</p>':'');result.classList.add('show')});
@@ -336,4 +339,40 @@ const originals=new WeakMap();
  out.innerHTML='<h3>'+tr('Destinazioni compatibili','Destinations that may fit','Destinos que podrían encajar')+' · '+pool.length+'</h3>'+pool.map(({c,f,d,total})=>{const name=esc(c.Paese),saved=favorites.has(c.Paese),visa=esc(displayVisa(c['Visto per cittadini italiani']||'Dato non inserito'));return '<article class="budget-card"><div><h3>'+esc(countryFlag(c.Paese))+' '+esc(displayCountryName(c.Paese))+'</h3><p>'+esc(displayContinent(c.Continente))+' · '+esc(c['Periodo migliore']||'Periodo da verificare')+'</p><p>'+tr('Volo stimato','Estimated flight','Vuelo estimado')+': '+f+' € · '+tr('Spese giornaliere','Daily expenses','Gastos diarios')+': '+d+' €</p><p>'+tr('Visto','Visa','Visado')+': '+visa+'</p><p class="budget-disclaimer">'+tr('Stima indicativa: non è una tariffa verificata e può variare molto in base a stagione e prenotazione.','Indicative estimate, not a verified fare; actual costs vary by season and booking.','Estimación orientativa, no es una tarifa verificada; los costes reales varían según temporada y reserva.')+'</p></div><div style="text-align:right"><div class="budget-total">'+total.toLocaleString(lang==='it'?'it-IT':lang==='es'?'es-ES':'en-US')+' €</div><p>'+tr('Stima totale','Estimated total','Coste estimado')+'</p><button type="button" class="budget-save" data-budget-fav="'+name+'">'+(saved?'♥':tr('Salva nei preferiti','Save to favourites','Guardar en favoritos'))+'</button></div></article>'}).join('');
  out.querySelectorAll('[data-budget-fav]').forEach(btn=>btn.addEventListener('click',()=>{const name=btn.dataset.budgetFav;if(favorites.has(name))favorites.delete(name);else favorites.add(name);localStorage.setItem('roam_favs',JSON.stringify([...favorites]));$('favCount').textContent=favorites.size;btn.textContent=favorites.has(name)?'♥':tr('Salva nei preferiti','Save to favourites','Guardar en favoritos')}));
  });
+})();
+
+/* ROAM Bucket List: device-local visited and wishlist collections */
+(()=>{
+ const read=(key)=>{try{const a=JSON.parse(localStorage.getItem(key)||'[]');return new Set(Array.isArray(a)?a.filter(x=>typeof x==='string'):[])}catch(e){return new Set()}};
+ let visited=read('roam_bucket_visited'),wish=read('roam_bucket_wish'),mapLayer=null,geoFeatures=null,mapStarted=false;
+ const save=()=>{localStorage.setItem('roam_bucket_visited',JSON.stringify([...visited]));localStorage.setItem('roam_bucket_wish',JSON.stringify([...wish]))};
+ const iso=name=>COUNTRY_CODES[name]||'';
+ const lang=()=> $('languagePicker')?.value||'it';
+ const countryLabel=name=>displayCountryName(name);
+ const render=()=>{
+  const total=countries.length,vc=visited.size,wc=wish.size;
+  $('bucketVisitedCount').textContent=vc;$('bucketWishCount').textContent=wc;$('bucketProgress').textContent=(total?Math.round(vc/total*100):0)+'%';
+  $('bucketVisitedLabel').textContent=vc+' Paesi';$('bucketWishLabel').textContent=wc+' Paesi';
+  const item=(name,type)=>'<div class="bucket-item"><span>'+esc(countryFlag(name))+' '+esc(countryLabel(name))+'</span><button type="button" data-bucket-move="'+esc(name)+'" data-target="'+(type==='visited'?'wish':'visited')+'">'+(type==='visited'?'Sposta in “Da visitare”':'Segna come visitato')+'</button><button type="button" data-bucket-remove="'+esc(name)+'" data-type="'+type+'" aria-label="Rimuovi">×</button></div>';
+  $('bucketWishList').innerHTML=[...wish].sort((a,b)=>a.localeCompare(b,'it')).map(n=>item(n,'wish')).join('')||'<p class="bucket-empty">La tua lista dei desideri è ancora vuota.</p>';
+  $('bucketVisitedList').innerHTML=[...visited].sort((a,b)=>a.localeCompare(b,'it')).map(n=>item(n,'visited')).join('')||'<p class="bucket-empty">Il tuo viaggio è appena cominciato. Aggiungi il primo Paese!</p>';
+  if(mapLayer&&geoFeatures)mapLayer.setStyle(featureStyle);
+ };
+ const featureCode=f=>{const p=f.properties||{};return String(p.ISO_A2||p.iso_a2||p.ISO3166_1_Alpha_2||p['ISO3166-1-Alpha-2']||'').toUpperCase()};
+ const featureStyle=f=>{const code=featureCode(f),name=Object.keys(COUNTRY_CODES).find(n=>COUNTRY_CODES[n]===code);return {color:'#ffffff',weight:.7,fillOpacity:.9,fillColor:name&&visited.has(name)?'#24645a':name&&wish.has(name)?'#d5a83f':'#dce4dc'}};
+ const initMap=()=>{
+  if(mapStarted)return;if(!window.L){$('bucketMapHelp').textContent='La mappa interattiva richiede una connessione per caricare il servizio cartografico. Puoi comunque gestire le tue liste qui sopra.';return}
+  mapStarted=true;window.roamBucketMap=L.map('bucketMap',{scrollWheelZoom:false,worldCopyJump:true}).setView([20,0],2);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:6,attribution:'© OpenStreetMap'}).addTo(window.roamBucketMap);
+  fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson').then(r=>{if(!r.ok)throw new Error('GeoJSON non disponibile');return r.json()}).then(data=>{
+   geoFeatures=data.features||[];mapLayer=L.geoJSON(data,{style:featureStyle,onEachFeature:(feature,layer)=>{const p=feature.properties||{},code=featureCode(feature),name=Object.keys(COUNTRY_CODES).find(n=>COUNTRY_CODES[n]===code);layer.bindTooltip(p.ADMIN||p.name||'Paese');layer.on('click',()=>{if(name){$('bucketCountry').value=name;$('bucketMapHelp').textContent=countryLabel(name)+' selezionato. Scegli se aggiungerlo ai Paesi da visitare o a quelli visitati.'}})}}).addTo(window.roamBucketMap);
+  }).catch(()=>{$('bucketMapHelp').textContent='Non è stato possibile caricare la cartina. Le tue liste restano disponibili e salvate sul dispositivo.'});
+ };
+ const populate=()=>{const select=$('bucketCountry');if(!select||!countries.length)return;select.innerHTML='<option value="">Seleziona un Paese…</option>'+countries.slice().sort((a,b)=>a.Paese.localeCompare(b.Paese,'it')).map(c=>'<option value="'+esc(c.Paese)+'">'+esc(countryFlag(c.Paese))+' '+esc(countryLabel(c.Paese))+'</option>').join('');};
+ const add=(type)=>{const name=$('bucketCountry').value;if(!name)return; if(type==='visited'){visited.add(name);wish.delete(name)}else{wish.add(name);visited.delete(name)}save();render();$('bucketMapHelp').textContent=countryLabel(name)+(type==='visited'?' aggiunto ai Paesi visitati.':' aggiunto alla lista dei desideri.')};
+ $('bucketAddWish')?.addEventListener('click',()=>add('wish'));$('bucketAddVisited')?.addEventListener('click',()=>add('visited'));
+ document.addEventListener('click',e=>{const move=e.target.closest('[data-bucket-move]'),remove=e.target.closest('[data-bucket-remove]');if(move){const n=move.dataset.bucketMove;if(move.dataset.target==='visited'){visited.add(n);wish.delete(n)}else{wish.add(n);visited.delete(n)}save();render()}if(remove){const n=remove.dataset.bucketRemove;(remove.dataset.type==='visited'?visited:wish).delete(n);save();render()}});
+ const start=()=>{populate();render();initMap()};
+ window.roamRenderBucket=start;
+ if(countries.length)start();else{const check=setInterval(()=>{if(countries.length){clearInterval(check);start()}},250);setTimeout(()=>clearInterval(check),15000)}
 })();
