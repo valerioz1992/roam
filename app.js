@@ -10,7 +10,12 @@ function render(){let arr=filtered();$('count').textContent=arr.length+' risulta
 function detail(c){const currencyCode=(c.Valute||[]).map(v=>v.codice).find(Boolean)||'';let fields=[['Continente',c.Continente],['Periodo migliore',c['Periodo migliore']],['Visto per cittadini italiani',c['Visto per cittadini italiani']],['Modalità richiesta visto',c['Modalità richiesta visto']],['Budget giornaliero','Stima editoriale da completare'],['Durata consigliata','Da definire in base all’itinerario'],['Esperienze','Da completare con contenuti verificati'],['Clima','Consulta il periodo migliore indicato e le fonti meteo locali'],['Completezza del dato visto',String(c['Visto per cittadini italiani']||'').trim()?'Presente nel database, da verificare su fonte ufficiale':'Dato non inserito'],['Capitale',c.Capitale],['Lingue', (c.Lingue||[]).join(', ')],['Valuta',(c.Valute||[]).map(v=>v.nome+' ('+v.codice+')').join(', ')],['Fuso orario',(c.Fuso_orario||[]).join(', ')],['Popolazione',c.Popolazione?Number(c.Popolazione).toLocaleString('it-IT'):'Dato non disponibile'],['Superficie',c.Superficie_km2?Number(c.Superficie_km2).toLocaleString('it-IT')+' km²':'Dato non disponibile']];$('detailContent').innerHTML='<div class="detail-photo"><img data-country-photo="'+esc(c.Paese)+'" alt="'+esc(PHOTO_ARTICLES[c.Paese]||c.Paese)+' – immagine rappresentativa di '+esc(c.Paese)+'"></div><div class="detailhead"><div><div class="eyebrow">Scheda destinazione</div><h2>'+esc(c.Paese)+'</h2></div><button class="close" onclick="$(\'detail\').close()">×</button></div><div class="detailgrid">'+fields.map(([k,v])=>'<div class="detailbox"><small>'+esc(k)+'</small><strong>'+esc(v||'Non disponibile')+'</strong></div>').join('')+'</div><section class="rating-panel"><div class="eyebrow">Valutazione ROAM</div><div class="rating-top"><strong>— <span>/ 5</span></strong><span class="rating-status">Valutazione in corso</span></div><p>Il punteggio sarà pubblicato quando i criteri saranno supportati da dati verificabili. Nessuna valutazione inventata.</p><div class="rating-criteria"><span>Attrattività turistica</span><span>Rapporto qualità/prezzo</span><span>Facilità di organizzazione</span><span>Sicurezza</span><span>Accessibilità</span></div><small>La sicurezza sarà valutata separatamente dagli avvisi ufficiali aggiornati.</small></section><section class="currency-panel" data-currency="'+esc(currencyCode)+'"><div class="eyebrow">Cambio valuta</div><h3>Euro ↔ valuta locale</h3><div id="currencyResult">'+(currencyCode?'Recupero del tasso di cambio…':'Valuta non disponibile nel database')+'</div><small id="currencySource">Tassi di riferimento · Frankfurter</small></section><section style="margin-top:18px;padding:16px;border:1px solid var(--line);border-radius:15px;background:#fbfcf9"><div class="eyebrow">Prima di partire</div><h3 style="margin:7px 0 10px;font-size:18px">Controlli pratici per '+esc(c.Paese)+'</h3><ul style="padding-left:19px;margin:0;color:var(--muted);font-size:13px;line-height:1.7"><li>Verifica quale documento è accettato e la sua validità residua.</li><li>Controlla requisiti di ingresso, eventuale visto e modalità di richiesta.</li><li>Consulta gli avvisi di sicurezza, la situazione sanitaria e le indicazioni sulla mobilità.</li><li>Annota i contatti dell’Ambasciata o del Consolato italiano.</li></ul><p style="margin:13px 0 0"><a href="https://www.viaggiaresicuri.it/" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:var(--ink);color:white;text-decoration:none;border-radius:30px;padding:10px 14px;font-size:13px;font-weight:700">Apri Viaggiare Sicuri ↗</a> <a href="https://www.viaggiaresicuri.it/approfondimenti-insights/documentidiviaggio" target="_blank" rel="noopener noreferrer" style="display:inline-block;color:var(--teal);font-size:13px;margin:10px 0 0 8px">Documenti di viaggio ↗</a></p></section><p class="note">I dati su periodo e visto riportati sopra provengono dal database ROAM e non sono verificati in tempo reale. La sezione “Prima di partire” è una checklist: consulta le fonti ufficiali per le regole aggiornate e specifiche di '+esc(c.Paese)+'. Il portale Viaggiare Sicuri del Ministero degli Affari Esteri pubblica informazioni su requisiti di ingresso, sicurezza, salute, mobilità e contatti diplomatici.</p>';$('detail').showModal();observeCountryPhotos();if(currencyCode)loadCurrencyRate(currencyCode)}
 const currencyCache=new Map();async function loadCurrencyRate(code){const target=$('currencyResult'),source=$('currencySource');if(!target||!code)return;if(currencyCache.has(code)){target.innerHTML=currencyCache.get(code);return}try{const response=await fetch('https://api.frankfurter.dev/v1/latest?base=EUR&symbols='+encodeURIComponent(code));if(!response.ok)throw new Error('Tasso non disponibile');const data=await response.json(),rate=data.rates?.[code];if(!rate)throw new Error('Tasso non disponibile');const html='<strong>1 EUR = '+Number(rate).toLocaleString('it-IT',{maximumFractionDigits:4})+' '+esc(code)+'</strong><br><span>1 '+esc(code)+' = '+(1/rate).toLocaleString('it-IT',{maximumFractionDigits:5})+' EUR</span>';currencyCache.set(code,html);target.innerHTML=html;if(source)source.textContent='Fonte: Frankfurter · Tasso del '+new Date(data.date+'T00:00:00').toLocaleDateString('it-IT')+' · aggiornamento nei giorni lavorativi'}catch(e){target.textContent='Cambio temporaneamente non disponibile. Riprova più tardi.';if(source)source.textContent='Fonte: Frankfurter · nessun dato ricevuto'} }
 const photoCache=new Map(),photoPending=new Set();
-const PHOTO_ARTICLES={'Giappone':'Mount Fuji','Egitto':'Giza pyramid complex','Thailandia':'Phi Phi Islands','Nuova Zelanda':'Aoraki Mount Cook','Perù':'Machu Picchu','Marocco':'Chefchaouen','Sud Africa':'Table Mountain','Islanda':'Skógafoss','Norvegia':'Lofoten'};
+const PHOTO_ARTICLES={
+'Giappone':'Mount Fuji','Egitto':'Giza pyramid complex','Thailandia':'Phi Phi Islands','Nuova Zelanda':'Aoraki Mount Cook','Perù':'Machu Picchu','Marocco':'Chefchaouen','Sud Africa':'Table Mountain','Islanda':'Skógafoss','Norvegia':'Lofoten',
+'Italia':'Dolomites','Francia':'Mont Saint-Michel','Spagna':'Alhambra','Portogallo':'Pena Palace','Grecia':'Santorini','Turchia':'Cappadocia','Regno Unito':'Scottish Highlands','Irlanda':'Cliffs of Moher','Germania':'Neuschwanstein Castle','Svizzera':'Matterhorn','Austria':'Hallstatt','Polonia':'Tatra Mountains','Croazia':'Plitvice Lakes National Park','Slovenia':'Lake Bled','Montenegro':'Bay of Kotor','Albania':'Ksamil','Romania':'Bran Castle','Bulgaria':'Rila Monastery',
+'Stati Uniti':'Grand Canyon','USA':'Grand Canyon','Canada':'Moraine Lake','Messico':'Chichen Itza','Costa Rica':'Arenal Volcano','Panama':'Panama Canal','Guatemala':'Tikal','Cuba':'Viñales Valley','Giamaica':'Dunns River Falls','Bahamas':'Exuma Cays','Brasile':'Iguazu Falls','Argentina':'Perito Moreno Glacier','Cile':'Torres del Paine National Park','Bolivia':'Salar de Uyuni','Ecuador':'Galápagos Islands','Uruguay':'Colonia del Sacramento',
+'Kenya':'Maasai Mara','Tanzania':'Mount Kilimanjaro','Namibia':'Sossusvlei','Botswana':'Okavango Delta','Zambia':'Victoria Falls','Zimbabwe':'Victoria Falls','Uganda':'Bwindi Impenetrable National Park','Ruanda':'Volcanoes National Park Rwanda','Etiopia':'Lalibela','Ghana':'Cape Coast Castle','Senegal':'Lake Retba','Madagascar':'Avenue of the Baobabs','Mauritius':'Le Morne Brabant','Seychelles':'Anse Source d’Argent','Capo Verde':'Pico do Fogo','Oman':'Wadi Shab','Giordania':'Petra','Emirati Arabi Uniti':'Burj Khalifa','Arabia Saudita':'AlUla','Qatar':'Doha skyline','India':'Taj Mahal','Nepal':'Annapurna Range','Pakistan':'Hunza Valley','Sri Lanka':'Sigiriya','Maldive':'Baa Atoll','Indonesia':'Borobudur','Vietnam':'Ha Long Bay','Cambogia':'Angkor Wat','Laos':'Kuang Si Falls','Filippine':'Palawan','Malaysia':'Mount Kinabalu','Singapore':'Gardens by the Bay','Cina':'Zhangjiajie National Forest Park','Corea del Sud':'Seoraksan National Park','Taiwan':'Taroko National Park','Australia':'Uluru','Figi':'Yasawa Islands','Polinesia Francese':'Bora Bora'
+};
 const COUNTRY_FLAGS={'Italia':'🇮🇹','Giappone':'🇯🇵','Egitto':'🇪🇬','Thailandia':'🇹🇭','Francia':'🇫🇷','Spagna':'🇪🇸','USA':'🇺🇸','Australia':'🇦🇺','Nuova Zelanda':'🇳🇿','India':'🇮🇳','Cina':'🇨🇳','Brasile':'🇧🇷','Perù':'🇵🇪','Messico':'🇲🇽','Grecia':'🇬🇷','Turchia':'🇹🇷','Marocco':'🇲🇦','Sud Africa':'🇿🇦','Kenya':'🇰🇪','Tanzania':'🇹🇿','Islanda':'🇮🇸','Norvegia':'🇳🇴','Svizzera':'🇨🇭','Germania':'🇩🇪','Regno Unito':'🇬🇧','Portogallo':'🇵🇹','Paesi Bassi':'🇳🇱','Irlanda':'🇮🇪','Croazia':'🇭🇷','Capo Verde':'🇨🇻','Maldive':'🇲🇻','Indonesia':'🇮🇩','Vietnam':'🇻🇳','Cambogia':'🇰🇭','Nepal':'🇳🇵','Giordania':'🇯🇴','Emirati Arabi Uniti':'🇦🇪','Singapore':'🇸🇬','Corea del Sud':'🇰🇷','Argentina':'🇦🇷','Cile':'🇨🇱','Bolivia':'🇧🇴','Canada':'🇨🇦','Finlandia':'🇫🇮','Austria':'🇦🇹','Polonia':'🇵🇱','Cuba':'🇨🇺','Giamaica':'🇯🇲','Seychelles':'🇸🇨','Mauritius':'🇲🇺','Madagascar':'🇲🇬','Oman':'🇴🇲','oman':'🇴🇲','Qatar':'🇶🇦','Arabia Saudita':'🇸🇦','Uzbekistan':'🇺🇿','Georgia':'🇬🇪','Armenia':'🇦🇲','Albania':'🇦🇱','Montenegro':'🇲🇪','Romania':'🇷🇴','Bulgaria':'🇧🇬','Serbia':'🇷🇸','Taiwan':'🇹🇼','Filippine':'🇵🇭','Sri Lanka':'🇱🇰','Laos':'🇱🇦','Birmania':'🇲🇲','Pakistan':'🇵🇰','Ghana':'🇬🇭','Senegal':'🇸🇳','Namibia':'🇳🇦','Botswana':'🇧🇼','Zambia':'🇿🇲','Zimbabwe':'🇿🇼','Uganda':'🇺🇬','Ruanda':'🇷🇼','Etiopia':'🇪🇹','Tunisia':'🇹🇳','Panama':'🇵🇦','Costa Rica':'🇨🇷','Guatemala':'🇬🇹','Ecuador':'🇪🇨','Uruguay':'🇺🇾','Bahamas':'🇧🇸','Figi':'🇫🇯','Polinesia Francese':'🇵🇫'};
 function countryFlag(name){return COUNTRY_FLAGS[name]||'🌍'}
 async function fetchCountryPhoto(name){
@@ -19,46 +24,40 @@ async function fetchCountryPhoto(name){
  photoPending.add(name);
  let result=null;
  const article=PHOTO_ARTICLES[name];
- if(article){
-  for(const lang of ['en','it']){
-   try{
-    const response=await fetch('https://'+lang+'.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(article),{headers:{'Accept':'application/json'}});
-    if(!response.ok)continue;
-    const data=await response.json();
-    result=data.originalimage?.source||data.thumbnail?.source||null;
-    if(result)break;
-   }catch(e){}
-  }
- }
- if(!result){
-  const blocked=/(^Italia$|^Antartide$|Terre australi e antartiche francesi|Isole Heard e McDonald|Territorio britannico dell’Oceano Indiano)/i.test(name);
-  if(!blocked){
-   const queries=[name+' iconic landscape travel',name+' famous natural landmark',name+' tourism scenery'];
-   for(const term of queries){
-    try{
-     const url='https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch='+encodeURIComponent(term)+'&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1400&format=json&origin=*';
-     const response=await fetch(url);
-     if(!response.ok)continue;
-     const data=await response.json();
-     const pages=Object.values(data.query?.pages||{});
-     const excluded=/(flag|map|coat of arms|logo|icon|seal|emblem|locator|blank map|outline map|satellite image)/i;
-     const candidates=pages.filter(p=>{
-      const info=p.imageinfo?.[0];
-      return info?.thumburl&&info.width>=1000&&info.height>=500&&!excluded.test(p.title||'')&&!/svg/i.test(info.thumburl);
-     }).map(p=>{
-      const title=(p.title||'').toLowerCase();
-      let score=0;
-      const tokens=name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/[^a-z0-9]+/).filter(t=>t.length>2);
-      for(const token of tokens)if(title.includes(token))score+=5;
-      if(/landscape|mountain|waterfall|beach|coast|island|national park|valley|lake|desert|temple|city|old town|bay|fjord|volcano/i.test(title))score+=3;
-      if(/tourism|travel|scenery|panorama/i.test(title))score+=2;
-      if(/201[5-9]|202[0-6]/.test(title))score+=1;
-      return {info:p.imageinfo[0],score,title};
-     }).sort((a,b)=>b.score-a.score);
-     if(candidates.length){result=candidates[0].info.thumburl;break;}
-    }catch(e){}
-   }
-  }
+ const queries=article
+  ? [name+' '+article+' landscape',article+' '+name+' travel photography',name+' iconic landscape']
+  : [name+' landscape travel photography',name+' famous natural landmark',name+' national park scenery',name+' coast mountain waterfall'];
+ const excluded=/(flag|map|coat of arms|logo|icon|seal|emblem|locator|blank map|outline map|satellite image|airport diagram|political map|flag of)/i;
+ const countryTokens=name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/[^a-z0-9]+/).filter(t=>t.length>2);
+ for(const term of queries){
+  try{
+   const url='https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch='+encodeURIComponent(term)+'&gsrnamespace=6&gsrlimit=40&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=1400&format=json&origin=*';
+   const response=await fetch(url);
+   if(!response.ok)continue;
+   const data=await response.json();
+   const pages=Object.values(data.query?.pages||{});
+   const candidates=pages.filter(p=>{
+    const info=p.imageinfo?.[0],title=p.title||'';
+    if(!info?.thumburl||info.width<1200||info.height<650||excluded.test(title)||/\.svg($|\?)/i.test(info.thumburl))return false;
+    const meta=info.extmetadata||{};
+    const license=meta.LicenseShortName?.value||meta.UsageTerms?.value||'';
+    return Boolean(license);
+   }).map(p=>{
+    const info=p.imageinfo[0],meta=info.extmetadata||{};
+    const title=(p.title||'').toLowerCase();
+    const description=(meta.ImageDescription?.value||'').replace(/<[^>]*>/g,' ').toLowerCase();
+    const categories=(p.categories||[]).map(c=>c.title||'').join(' ').toLowerCase();
+    const evidence=title+' '+description+' '+categories;
+    let score=0;
+    for(const token of countryTokens)if(evidence.includes(token))score+=8;
+    if(article&&evidence.includes(article.toLowerCase()))score+=12;
+    if(/landscape|mountain|waterfall|beach|coast|island|national park|valley|lake|desert|temple|old town|bay|fjord|volcano|historic|heritage/i.test(evidence))score+=4;
+    if(/tourism|travel|scenery|panorama/i.test(evidence))score+=2;
+    if(/\.(jpg|jpeg|webp)$/i.test(info.thumburl))score+=1;
+    return {url:info.thumburl,score,title:p.title,license:meta.LicenseShortName?.value||''};
+   }).sort((x,y)=>y.score-x.score);
+   if(candidates.length&&candidates[0].score>=8){result=candidates[0].url;break;}
+  }catch(e){}
  }
  photoPending.delete(name);
  photoCache.set(name,result);
