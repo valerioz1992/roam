@@ -25,7 +25,7 @@ const COUNTRY_CODES={
 'Kiribati':'KI','Isole Marshall':'MH','Micronesia':'FM','Palau':'PW','Papua Nuova Guinea':'PG','Samoa':'WS','Isole Salomone':'SB','Tonga':'TO','Vanuatu':'VU'
 };
 function flagFromCode(code){return String.fromCodePoint(...[...code.toUpperCase()].map(ch=>127397+ch.charCodeAt(0)))}
-function countryFlag(name){return COUNTRY_FLAGS[name]|| (COUNTRY_CODES[name]?flagFromCode(COUNTRY_CODES[name]):'🌍')}
+function countryFlag(name){const key=String(name||'').trim().toLocaleLowerCase('it');const flagKey=Object.keys(COUNTRY_FLAGS).find(k=>k.toLocaleLowerCase('it')===key);if(flagKey)return COUNTRY_FLAGS[flagKey];const codeKey=Object.keys(COUNTRY_CODES).find(k=>k.toLocaleLowerCase('it')===key);return codeKey?flagFromCode(COUNTRY_CODES[codeKey]):'🌍'}
 async function fetchCountryPhoto(name){
  if(photoCache.has(name))return photoCache.get(name);
  if(photoPending.has(name))return null;
