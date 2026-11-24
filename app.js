@@ -347,7 +347,8 @@ const originals=new WeakMap();
  let visited=read('roam_bucket_visited'),wish=read('roam_bucket_wish'),mapLayer=null,geoFeatures=null,mapStarted=false;
  const save=()=>{localStorage.setItem('roam_bucket_visited',JSON.stringify([...visited]));localStorage.setItem('roam_bucket_wish',JSON.stringify([...wish]))};
  const iso=name=>{if(COUNTRY_CODES[name])return COUNTRY_CODES[name];const flag=COUNTRY_FLAGS[name];if(flag){const chars=[...flag].map(ch=>ch.codePointAt(0));if(chars.length===2&&chars.every(n=>n>=127462&&n<=127487))return String.fromCharCode(...chars.map(n=>n-127397));}return ''};
- const codeNames=new Map();
+ const codeNames=new Map(),nameIndex=new Map();
+ const normName=value=>String(value||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]/g,'');
  const lang=()=> $('languagePicker')?.value||'it';
  const countryLabel=name=>displayCountryName(name);
  const render=()=>{
@@ -359,21 +360,22 @@ const originals=new WeakMap();
   $('bucketVisitedList').innerHTML=[...visited].sort((a,b)=>a.localeCompare(b,'it')).map(n=>item(n,'visited')).join('')||'<p class="bucket-empty">Il tuo viaggio è appena cominciato. Aggiungi il primo Paese!</p>';
   if(mapLayer&&geoFeatures)mapLayer.setStyle(featureStyle);
  };
- const featureCode=f=>{const p=f.properties||{};return String(p.ISO_A2||p.iso_a2||p.ISO3166_1_Alpha_2||p['ISO3166-1-Alpha-2']||'').toUpperCase()};
- const featureStyle=f=>{const code=featureCode(f),name=codeNames.get(code);return {color:'#ffffff',weight:.7,fillOpacity:.9,fillColor:name&&visited.has(name)?'#24645a':name&&wish.has(name)?'#d5a83f':'#dce4dc'}};
+ const featureCode=f=>{const p=f.properties||{};return String(p.ISO_A2||p.ISO_A2_EH||p.iso_a2||p.ISO3166_1_Alpha_2||p['ISO3166-1-Alpha-2']||'').toUpperCase()};
+ const resolveFeatureName=f=>{const p=f.properties||{};return codeNames.get(featureCode(f))||nameIndex.get(normName(p.NAME_IT))||nameIndex.get(normName(p.ADMIN))||nameIndex.get(normName(p.NAME))||nameIndex.get(normName(p.NAME_LONG))||null};
+ const featureStyle=f=>{const name=resolveFeatureName(f);return {color:'#ffffff',weight:.8,fillOpacity:.92,fillColor:name&&visited.has(name)?'#24645a':name&&wish.has(name)?'#d5a83f':'#dce4dc'}};
  const initMap=()=>{
   if(mapStarted)return;if(!window.L){$('bucketMapHelp').textContent='La mappa interattiva richiede una connessione per caricare il servizio cartografico. Puoi comunque gestire le tue liste qui sopra.';return}
   mapStarted=true;window.roamBucketMap=L.map('bucketMap',{scrollWheelZoom:false,worldCopyJump:true}).setView([20,0],2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:6,attribution:'© OpenStreetMap'}).addTo(window.roamBucketMap);
-  fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson').then(r=>{if(!r.ok)throw new Error('GeoJSON non disponibile');return r.json()}).then(data=>{
-   geoFeatures=data.features||[];mapLayer=L.geoJSON(data,{style:featureStyle,onEachFeature:(feature,layer)=>{const p=feature.properties||{},code=featureCode(feature),name=Object.keys(COUNTRY_CODES).find(n=>COUNTRY_CODES[n]===code);layer.bindTooltip(p.ADMIN||p.name||'Paese');layer.on('click',()=>{if(name){$('bucketCountry').value=name;$('bucketMapHelp').textContent=countryLabel(name)+' selezionato. Scegli se aggiungerlo ai Paesi da visitare o a quelli visitati.'}})}}).addTo(window.roamBucketMap);
+  fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson').then(r=>{if(!r.ok)throw new Error('GeoJSON non disponibile');return r.json()}).then(data=>{
+   geoFeatures=data.features||[];mapLayer=L.geoJSON(data,{style:featureStyle,onEachFeature:(feature,layer)=>{const p=feature.properties||{},name=resolveFeatureName(feature);layer.bindTooltip(p.NAME_IT||p.ADMIN||p.NAME||'Paese');layer.on('click',()=>{if(name){$('bucketCountry').value=name;$('bucketMapHelp').textContent=countryLabel(name)+' selezionato. Scegli se aggiungerlo ai Paesi da visitare o a quelli visitati.'}else{$('bucketMapHelp').textContent='Questo territorio non è presente nell’elenco delle destinazioni ROAM.'}})}}).addTo(window.roamBucketMap);
   }).catch(()=>{$('bucketMapHelp').textContent='Non è stato possibile caricare la cartina. Le tue liste restano disponibili e salvate sul dispositivo.'});
  };
  const populate=()=>{const select=$('bucketCountry');if(!select||!countries.length)return;select.innerHTML='<option value="">Seleziona un Paese…</option>'+countries.slice().sort((a,b)=>a.Paese.localeCompare(b.Paese,'it')).map(c=>'<option value="'+esc(c.Paese)+'">'+esc(countryFlag(c.Paese))+' '+esc(countryLabel(c.Paese))+'</option>').join('');};
  const add=(type)=>{const name=$('bucketCountry').value;if(!name)return; if(type==='visited'){visited.add(name);wish.delete(name)}else{wish.add(name);visited.delete(name)}save();render();$('bucketMapHelp').textContent=countryLabel(name)+(type==='visited'?' aggiunto ai Paesi visitati.':' aggiunto alla lista dei desideri.')};
  $('bucketAddWish')?.addEventListener('click',()=>add('wish'));$('bucketAddVisited')?.addEventListener('click',()=>add('visited'));
  document.addEventListener('click',e=>{const move=e.target.closest('[data-bucket-move]'),remove=e.target.closest('[data-bucket-remove]');if(move){const n=move.dataset.bucketMove;if(move.dataset.target==='visited'){visited.add(n);wish.delete(n)}else{wish.add(n);visited.delete(n)}save();render()}if(remove){const n=remove.dataset.bucketRemove;(remove.dataset.type==='visited'?visited:wish).delete(n);save();render()}});
- const start=()=>{countries.forEach(c=>{const code=iso(c.Paese);if(code)codeNames.set(code,c.Paese)});populate();render();initMap()};
+ const start=()=>{countries.forEach(c=>{const code=iso(c.Paese);if(code)codeNames.set(code,c.Paese);nameIndex.set(normName(c.Paese),c.Paese)});populate();render();initMap()};
  window.roamRenderBucket=start;
  if(countries.length)start();else{const check=setInterval(()=>{if(countries.length){clearInterval(check);start()}},250);setTimeout(()=>clearInterval(check),15000)}
 })();
