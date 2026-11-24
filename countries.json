@@ -30,7 +30,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -63,7 +67,15 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "safari",
+      "city",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -95,7 +107,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -129,7 +147,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "safari",
+      "adventure",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -161,7 +185,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -195,7 +224,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -228,7 +262,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "adventure",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -263,7 +302,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -296,7 +339,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "safari",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -332,7 +381,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -367,7 +420,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -405,7 +462,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -437,7 +498,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -471,7 +536,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -505,7 +576,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Africa",
@@ -540,7 +616,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -573,7 +655,14 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "safari",
+      "culture",
+      "adventure",
+      "mountain"
+    ]
   },
   {
     "Continente": "Africa",
@@ -606,7 +695,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -639,7 +732,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -671,7 +768,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -703,7 +804,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -736,7 +843,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -769,7 +882,15 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "safari",
+      "adventure",
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -808,7 +929,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "mountain",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -840,7 +967,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -873,7 +1006,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -908,7 +1047,14 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "safari",
+      "adventure",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -942,7 +1088,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "safari",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -974,7 +1125,10 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1005,7 +1159,15 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture",
+      "adventure",
+      "mountain",
+      "city",
+      "roadtrip"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1037,7 +1199,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1072,7 +1240,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1105,7 +1277,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "safari",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1151,7 +1328,15 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "safari",
+      "adventure",
+      "mountain",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1183,7 +1368,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "safari",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1215,7 +1406,14 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "safari",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1250,7 +1448,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "safari",
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1283,7 +1487,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1315,7 +1523,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1350,7 +1562,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1382,7 +1598,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1416,7 +1638,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1448,7 +1676,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "safari",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1491,7 +1725,17 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "safari",
+      "culture",
+      "adventure",
+      "mountain",
+      "city",
+      "roadtrip"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1525,7 +1769,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1558,7 +1808,15 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "safari",
+      "adventure",
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1590,7 +1848,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1620,7 +1884,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture",
+      "city",
+      "roadtrip"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1653,7 +1923,14 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "safari",
+      "adventure",
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1686,7 +1963,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "safari",
+      "adventure",
+      "culture"
+    ]
   },
   {
     "Continente": "Africa",
@@ -1733,7 +2016,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "safari",
+      "adventure",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -1768,7 +2057,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "mountain",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -1802,7 +2097,15 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "mountain",
+      "city",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -1834,7 +2137,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "culture",
+      "mountain"
+    ]
   },
   {
     "Continente": "Asia",
@@ -1865,7 +2172,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "mountain",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -1897,7 +2210,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -1930,7 +2248,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -1968,7 +2292,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "adventure",
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2003,7 +2333,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2040,7 +2376,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2073,7 +2414,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "culture",
+      "mountain",
+      "city"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2107,7 +2454,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2140,7 +2492,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2172,7 +2529,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2205,7 +2567,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "culture",
+      "mountain"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2238,7 +2605,16 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "adventure",
+      "mountain",
+      "city",
+      "roadtrip"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2271,7 +2647,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2306,7 +2686,15 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "adventure",
+      "mountain",
+      "city"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2340,7 +2728,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "adventure",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2373,7 +2767,10 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2409,7 +2806,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "mountain",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2440,7 +2843,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2474,7 +2881,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "mountain",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2507,7 +2920,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2540,7 +2957,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "adventure",
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2571,7 +2993,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2602,7 +3028,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2635,7 +3067,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2666,7 +3102,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2698,7 +3139,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "adventure",
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2729,7 +3176,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2762,7 +3213,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "culture",
+      "adventure",
+      "mountain"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2795,7 +3252,15 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "mountain",
+      "city",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2829,7 +3294,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "adventure",
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2878,7 +3348,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2912,7 +3388,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2945,7 +3426,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -2978,7 +3463,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "mountain",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -3010,7 +3501,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -3043,7 +3539,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "adventure",
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -3077,7 +3578,14 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -3108,7 +3616,14 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "city",
+      "roadtrip"
+    ]
   },
   {
     "Continente": "Asia",
@@ -3142,7 +3657,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -3174,7 +3695,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Asia",
@@ -3205,7 +3731,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Asia",
@@ -3239,7 +3770,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "culture",
+      "adventure",
+      "mountain"
+    ]
   },
   {
     "Continente": "Asia",
@@ -3272,7 +3808,14 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "adventure",
+      "city"
+    ]
   },
   {
     "Continente": "Asia",
@@ -3305,7 +3848,14 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "mountain",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Caraibi",
@@ -3340,7 +3890,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "America Centrale",
@@ -3374,7 +3928,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "America Centrale",
@@ -3406,7 +3965,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "adventure",
+      "culture"
+    ]
   },
   {
     "Continente": "Caraibi",
@@ -3444,7 +4009,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "America Centrale",
@@ -3477,7 +4047,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "America Centrale",
@@ -3510,7 +4086,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "culture",
+      "adventure"
+    ]
   },
   {
     "Continente": "Caraibi",
@@ -3543,7 +4124,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "America Centrale",
@@ -3576,7 +4163,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "adventure",
+      "culture"
+    ]
   },
   {
     "Continente": "Caraibi",
@@ -3609,7 +4201,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "America Centrale",
@@ -3642,7 +4238,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "America Centrale",
@@ -3679,7 +4281,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "adventure",
+      "culture"
+    ]
   },
   {
     "Continente": "Caraibi",
@@ -3709,7 +4317,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Caraibi",
@@ -3739,7 +4351,11 @@
     "Superficie_km2": 5130,
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -3769,7 +4385,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -3799,7 +4419,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "mountain",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -3831,7 +4456,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "culture",
+      "mountain"
+    ]
   },
   {
     "Continente": "Europa",
@@ -3865,7 +4495,10 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -3898,7 +4531,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -3930,7 +4567,11 @@
     "Superficie_km2": 51209,
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "culture",
+      "mountain"
+    ]
   },
   {
     "Continente": "Europa",
@@ -3962,7 +4603,10 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -3997,7 +4641,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4028,7 +4676,10 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4060,7 +4711,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "roadtrip"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4096,7 +4753,14 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4128,7 +4792,14 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4159,7 +4830,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4204,7 +4879,15 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "mountain",
+      "city",
+      "roadtrip"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4236,7 +4919,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4269,7 +4956,14 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "city",
+      "roadtrip"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4302,7 +4996,10 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4330,7 +5027,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4361,7 +5063,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "mountain",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4393,7 +5101,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4423,7 +5136,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "mountain",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4455,7 +5174,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4489,7 +5214,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4519,7 +5248,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4554,7 +5287,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4584,7 +5321,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4614,7 +5356,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4644,7 +5391,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4674,7 +5425,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "mountain",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4707,7 +5464,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4739,7 +5500,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "culture",
+      "mountain",
+      "city"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4773,7 +5539,14 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "city",
+      "roadtrip"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4813,7 +5586,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4845,7 +5622,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "culture",
+      "mountain"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4885,7 +5667,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "culture",
+      "city"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4915,7 +5701,10 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4945,7 +5734,10 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -4977,7 +5769,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "mountain",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -5009,7 +5806,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -5042,7 +5844,14 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "city",
+      "roadtrip"
+    ]
   },
   {
     "Continente": "Europa",
@@ -5074,7 +5883,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -5107,7 +5920,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -5137,7 +5955,15 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "mountain",
+      "city",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Europa",
@@ -5169,7 +5995,10 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "culture"
+    ]
   },
   {
     "Continente": "Nord America",
@@ -5206,7 +6035,15 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "adventure",
+      "mountain",
+      "city",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Nord America",
@@ -5242,7 +6079,14 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "adventure",
+      "city"
+    ]
   },
   {
     "Continente": "Nord America",
@@ -5284,7 +6128,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "city",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Oceania",
@@ -5321,7 +6170,15 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "adventure",
+      "city",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Oceania",
@@ -5356,7 +6213,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Oceania",
@@ -5395,7 +6256,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Oceania",
@@ -5429,7 +6294,12 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Oceania",
@@ -5461,7 +6331,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Oceania",
@@ -5497,7 +6372,15 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "adventure",
+      "mountain",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Oceania",
@@ -5531,7 +6414,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Oceania",
@@ -5565,7 +6453,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "nature",
+      "adventure",
+      "culture"
+    ]
   },
   {
     "Continente": "Oceania",
@@ -5597,7 +6490,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Oceania",
@@ -5632,7 +6529,12 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture"
+    ]
   },
   {
     "Continente": "Oceania",
@@ -5664,7 +6566,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Oceania",
@@ -5697,7 +6603,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Sud America",
@@ -5730,7 +6640,16 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "adventure",
+      "mountain",
+      "city",
+      "roadtrip"
+    ]
   },
   {
     "Continente": "Sud America",
@@ -5766,7 +6685,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "culture",
+      "adventure",
+      "mountain"
+    ]
   },
   {
     "Continente": "Sud America",
@@ -5808,7 +6733,15 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "adventure",
+      "city",
+      "roadtrip"
+    ]
   },
   {
     "Continente": "Sud America",
@@ -5843,7 +6776,15 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "adventure",
+      "mountain",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Sud America",
@@ -5876,7 +6817,14 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "adventure",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Sud America",
@@ -5914,7 +6862,14 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "adventure",
+      "mountain",
+      "culture"
+    ]
   },
   {
     "Continente": "Sud America",
@@ -5946,7 +6901,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Sud America",
@@ -5979,7 +6940,13 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "nature",
+      "city",
+      "roadtrip",
+      "culture"
+    ]
   },
   {
     "Continente": "Sud America",
@@ -6013,7 +6980,14 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture",
+      "adventure",
+      "mountain"
+    ]
   },
   {
     "Continente": "Sud America",
@@ -6046,7 +7020,13 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "city",
+      "culture"
+    ]
   },
   {
     "Continente": "Sud America",
@@ -6077,7 +7057,11 @@
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
     "Aggiornamento_dati": "2026-11-24",
-    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati"
+    "Modalità richiesta visto": "Non richiesto per soggiorni turistici nei limiti indicati",
+    "Tipi di viaggio": [
+      "beach",
+      "culture"
+    ]
   },
   {
     "Continente": "Sud America",
@@ -6109,6 +7093,11 @@
     "Guida": "https://www.viaggiaresicuri.it/",
     "Fonte_dati": "REST Countries v3.1",
     "Fonte_url": "https://restcountries.com/",
-    "Aggiornamento_dati": "2026-11-24"
+    "Aggiornamento_dati": "2026-11-24",
+    "Tipi di viaggio": [
+      "beach",
+      "nature",
+      "culture"
+    ]
   }
 ]
