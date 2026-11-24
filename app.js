@@ -297,7 +297,8 @@ else{document.getElementById('installNav').hidden=false;window.addEventListener(
   document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
   byId('menuExplore')?.addEventListener('click',()=>{close();byId('homeMain')?.scrollIntoView({behavior:'smooth'})});
   byId('menuFavorites')?.addEventListener('click',()=>{close();byId('favBtn')?.click();byId('favNav')?.scrollIntoView({behavior:'smooth',block:'center'})});
-  byId('menuRoute')?.addEventListener('click',()=>{close();byId('routefinder')?.scrollIntoView({behavior:'smooth',block:'start'})});
+  byId('menuRoute')?.addEventListener('click',()=>{close();const home=byId('homeMain'),page=byId('routePage');if(home&&page){home.hidden=true;page.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}});
+  byId('routeBack')?.addEventListener('click',()=>{byId('routePage')?.classList.remove('active');if(byId('homeMain'))byId('homeMain').hidden=false;window.scrollTo({top:0,behavior:'smooth'})});
   byId('openDiy')?.addEventListener('click',()=>{close();const home=byId('homeMain'),page=byId('diyPage');if(home&&page){home.hidden=true;page.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}});
   byId('diyBack')?.addEventListener('click',()=>{byId('diyPage')?.classList.remove('active');if(byId('homeMain'))byId('homeMain').hidden=false;window.scrollTo({top:0,behavior:'smooth'})});
  }
