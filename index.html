@@ -69,7 +69,7 @@ header.top .menu-trigger{display:grid;visibility:visible;opacity:1;position:rela
 <section class="wrap diy-page" id="diyPage"><button class="diy-back" id="diyBack" type="button">← Torna a esplora</button><div class="diy-hero"><div class="eyebrow">ROAM · TRAVEL BUILDER</div><h1>Il viaggio lo disegni tu.</h1><p>Parti da un’idea, scegli il tuo stile e costruisci un viaggio su misura. ROAM ti aiuta a mettere ordine tra desideri, tempi e budget.</p></div><div class="diy-content"><section class="diy-form"><h2>Progettiamo la tua prossima partenza</h2><p class="diy-help">Inserisci le prime informazioni: puoi sempre modificarle in seguito.</p>
 <section class="flight-search-panel diy-live-flight" aria-labelledby="flightSearchTitle">
 <div class="eyebrow">ROAM · LIVE FLIGHTS</div><h3 id="flightSearchTitle">Cerca voli per il tuo viaggio</h3>
-<p>Ricerca voli reali direttamente nel tuo progetto di viaggio. Inserisci i codici IATA degli aeroporti (3 lettere, ad esempio PSA o MAD).</p>
+<p>Ricerca voli reali direttamente nel tuo progetto di viaggio. La ricerca voli è centralizzata qui: il percorso qui sotto serve a costruire le tappe senza duplicare le ricerche.</p>
 <form data-flight-search-form>
 <div class="flight-fields">
 <label>Tipo di viaggio<select name="trip_type" data-trip-type><option value="one_way">Solo andata</option><option value="round_trip">Andata e ritorno</option><option value="multi_city">Multitratta</option></select></label>
@@ -91,7 +91,7 @@ header.top .menu-trigger{display:grid;visibility:visible;opacity:1;position:rela
  <div class="diy-itinerary-head"><div><span class="eyebrow">IL TUO PERCORSO</span><h3>Costruisci il viaggio, una tratta alla volta</h3><p>Parti da una città e aggiungi tutte le tappe che vuoi. Ogni nuova tratta partirà automaticamente dalla destinazione precedente.</p></div><span class="diy-leg-count" id="diyLegCount">1 tratta</span></div>
  <div id="diyLegs" class="diy-legs" aria-live="polite"></div>
  <button type="button" class="diy-add-leg" id="diyAddLeg">＋ Aggiungi una tratta</button>
- <p class="diy-route-hint">Puoi combinare voli, treni, autobus, auto e traghetti. Le tratte sono il tuo progetto: ROAM non effettua prenotazioni né verifica disponibilità in tempo reale.</p>
+ <p class="diy-route-hint">Puoi combinare voli, treni, autobus, auto e traghetti. Le tratte sono il tuo progetto. Per cercare i voli usa il pannello unico qui sopra: evitiamo ricerche duplicate e richieste inutili.</p>
 </div>
 <button class="diy-submit" type="submit">Salva il mio itinerario →</button></form><div class="diy-result" id="diyResult" aria-live="polite"></div></section><aside class="diy-aside"><div class="eyebrow">COME FUNZIONA</div><h2>Dal desiderio al piano di viaggio.</h2><ul><li>Definisci meta, durata e budget.</li><li>Costruiamo una prima traccia di itinerario.</li><li>Organizza tappe, spostamenti e attività.</li><li>Raccogli tutto in un unico spazio.</li></ul><p class="diy-help">Questa è la tua area di progettazione: la prima bozza è un punto di partenza, non una prenotazione.</p></aside></div></section>
 <section class="wrap diy-page budget-page" id="budgetPage"><button class="diy-back" id="budgetBack" type="button">← Torna a esplora</button>
@@ -123,7 +123,7 @@ function choose(lang){picker.value=lang;document.documentElement.lang=lang;local
 flags.forEach(b=>b.addEventListener('click',()=>choose(b.dataset.language)));
 const saved=localStorage.getItem('roam_language');if(['it','en','es'].includes(saved))choose(saved);else choose('it');
 })();
-</script><script src="./app.js?build=50"></script>
+</script><script src="./app.js?build=51"></script>
 <script>
 (()=>{const ids=['total','seasonCoverage','visaCoverage','methodCoverage'];fetch('./countries.json?build=34',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(data=>{if(!Array.isArray(data)||!data.length)throw new Error('Database vuoto');document.getElementById(ids[0]).textContent=data.length;document.getElementById(ids[1]).textContent=data.filter(c=>String(c['Periodo migliore']||'').trim()).length+'/'+data.length;document.getElementById(ids[2]).textContent=data.filter(c=>String(c['Visto per cittadini italiani']||'').trim()).length+'/'+data.length;document.getElementById(ids[3]).textContent=data.filter(c=>String(c['Modalità richiesta visto']||'').trim()).length+'/'+data.length;}).catch(err=>{console.error('ROAM counters:',err);ids.forEach(id=>{const el=document.getElementById(id);if(el)el.textContent='—'});});})();
 </script></body></html>
