@@ -424,6 +424,31 @@ const originals=new WeakMap();
    return '<article class="flight-card"><h4>'+escFlight(airlines)+'</h4><div class="flight-price">'+(Number.isFinite(price)?price.toLocaleString('it-IT')+' €':'Prezzo da verificare')+'</div><div class="flight-meta">'+(depart&&arrive?escFlight(depart)+' → '+escFlight(arrive)+' · ':'')+(item.total_duration?escFlight(fmtDuration(item.total_duration))+' · ':'')+escFlight(stopText)+'</div><a class="flight-link" href="'+escFlight(link)+'" target="_blank" rel="noopener noreferrer">Apri e verifica su Google Flights ↗</a></article>';
   }).join('')+'<div class="flight-message">Risultati forniti da Google Flights tramite SerpApi. Prezzi, disponibilità, bagagli e condizioni vanno verificati sul sito del venditore.</div>';
  }
+ function renderExploreResults(target,data){
+  const destinations=Array.isArray(data.destinations)?data.destinations:[];
+  if(data.error){target.innerHTML='<div class="flight-message">'+escFlight(data.error)+'</div>';return}
+  if(!destinations.length){target.innerHTML='<div class="flight-message">Non ho trovato mete con questi parametri. Prova un’altra partenza o date flessibili.</div>';return}
+  const sorted=destinations.filter(d=>Number.isFinite(Number(d.flight_price))).sort((a,b)=>Number(a.flight_price)-Number(b.flight_price));
+  const items=(sorted.length?sorted:destinations).slice(0,20);
+  target.innerHTML='<div class="flight-explore-grid">'+items.map(d=>{
+   const price=Number(d.flight_price),duration=d.flight_duration?fmtDuration(d.flight_duration):'',stops=Number.isFinite(Number(d.number_of_stops))?(Number(d.number_of_stops)===0?'Diretto':d.number_of_stops+' scali'):'';
+   const href=d.link||d.serpapi_link||'https://www.google.com/travel/explore';
+   return '<article class="flight-explore-card">'+(d.thumbnail?'<img loading="lazy" src="'+escFlight(d.thumbnail)+'" alt="">':'')+'<h4>'+escFlight(d.name||'Destinazione')+'</h4><div class="flight-explore-meta">'+escFlight(d.country||'')+'</div><div class="flight-explore-price">'+(Number.isFinite(price)?price.toLocaleString('it-IT')+' €':'Prezzo non indicato')+'</div><div class="flight-explore-meta">'+(duration?escFlight(duration)+' · ':'')+escFlight(stops)+(d.start_date?' · '+escFlight(d.start_date):'')+'</div><a href="'+escFlight(href)+'" target="_blank" rel="noopener noreferrer">Vedi voli e date ↗</a></article>';
+  }).join('')+'</div><div class="flight-message">Mete suggerite da Google Travel Explore. Prezzi e date sono indicativi e vanno verificati prima di prenotare.</div>';
+ }
+ async function exploreAnywhere(button){
+  const panel=button.closest('.flight-search-panel'),origin=panel?.querySelector('[name="departure_city"]'),date=panel?.querySelector('[name="outbound_date"]'),ret=panel?.querySelector('[name="return_date"]'),adults=panel?.querySelector('[name="adults"]'),target=panel?.querySelector('[data-flight-results]');
+  if(!origin||!target)return;
+  let departure_id;
+  try{departure_id=resolveCity(origin.value)}catch(e){target.innerHTML='<div class="flight-message">'+escFlight(e.message)+'</div>';origin.focus();return}
+  const values={departure_id,adults:Number(adults?.value||1)};
+  if(date?.value)values.outbound_date=date.value;
+  if(ret?.value){if(!values.outbound_date||ret.value<values.outbound_date){target.innerHTML='<div class="flight-message">Per indicare il ritorno, scegli prima una data di partenza valida.</div>';return}values.return_date=ret.value}
+  const old=button.textContent;button.disabled=true;button.textContent='Cerco le mete più convenienti…';target.innerHTML='<div class="flight-message">Sto cercando destinazioni in tutto il mondo. Attendi qualche secondo…</div>';
+  try{const response=await fetch(WORKER+'/explore',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(values)});const data=await response.json();if(!response.ok)throw new Error(data.error||'Ricerca destinazioni non disponibile');renderExploreResults(target,data)}
+  catch(error){target.innerHTML='<div class="flight-message">'+escFlight(error.message||'Errore durante la ricerca delle destinazioni.')+'</div>'}
+  finally{button.disabled=false;button.textContent=old||'🌍 Ovunque · trova le mete più economiche'}
+ }
  async function requestFlight(values,target){
   const response=await fetch(WORKER+'/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(values)});
   const data=await response.json();
@@ -472,6 +497,7 @@ const originals=new WeakMap();
   const add=event.target.closest('[data-add-flight-leg]');if(!add)return;
   const form=add.closest('form'),box=form.querySelector('[data-multicity-legs]');box.insertAdjacentHTML('beforeend',multiLegMarkup());
  });
+ document.addEventListener('click',event=>{const button=event.target.closest('[data-explore-anywhere]');if(button){event.preventDefault();exploreAnywhere(button)}});
  document.addEventListener('submit',event=>{
   const form=event.target.closest('[data-flight-search-form]');if(!form)return;
   event.preventDefault();const button=form.querySelector('button[type="submit"]'),target=form.querySelector('[data-flight-results]');
