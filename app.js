@@ -440,7 +440,7 @@ const originals=new WeakMap();
     if(!rows.length)throw new Error('Aggiungi almeno una tratta.');
     for(let i=0;i<rows.length;i++){
      const row=rows[i],departure_id=resolveCity(row.querySelector('[data-multi-from]').value),arrival_id=resolveCity(row.querySelector('[data-multi-to]').value),outbound_date=row.querySelector('[data-multi-date]').value;
-     if(!/^[A-Z]{3}$/.test(departure_id)||!/^[A-Z]{3}$/.test(arrival_id)||departure_id===arrival_id||!/^\\d{4}-\\d{2}-\\d{2}$/.test(outbound_date))throw new Error('Controlla aeroporti IATA e data della tratta '+(i+1)+'.');
+     if(!departure_id.split(',').every(code=>/^[A-Z]{3}$/.test(code))||!arrival_id.split(',').every(code=>/^[A-Z]{3}$/.test(code))||departure_id===arrival_id||!/^\d{4}-\d{2}-\d{2}$/.test(outbound_date))throw new Error('Controlla città e data della tratta '+(i+1)+'.');
     }
     target.innerHTML='';
     for(let i=0;i<rows.length;i++){
@@ -450,9 +450,9 @@ const originals=new WeakMap();
     }
    }else{
     const departure_id=resolveCity(fd.get('departure_city')),arrival_id=resolveCity(fd.get('arrival_city')),outbound_date=String(fd.get('outbound_date')||''),return_date=String(fd.get('return_date')||'');
-    if(!/^[A-Z]{3}$/.test(departure_id)||!/^[A-Z]{3}$/.test(arrival_id)||departure_id===arrival_id)throw new Error('Inserisci due città diverse presenti nell’elenco.');
-    if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(outbound_date))throw new Error('Seleziona una data di partenza valida.');
-    if(trip==='round_trip'&&(!/^\\d{4}-\\d{2}-\\d{2}$/.test(return_date)||return_date<outbound_date))throw new Error('Seleziona una data di ritorno successiva alla partenza.');
+    if(!departure_id.split(',').every(code=>/^[A-Z]{3}$/.test(code))||!arrival_id.split(',').every(code=>/^[A-Z]{3}$/.test(code))||departure_id===arrival_id)throw new Error('Inserisci due città diverse presenti nell’elenco.');
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(outbound_date))throw new Error('Seleziona una data di partenza valida.');
+    if(trip==='round_trip'&&(!/^\d{4}-\d{2}-\d{2}$/.test(return_date)||return_date<outbound_date))throw new Error('Seleziona una data di ritorno successiva alla partenza.');
     const values={departure_id,arrival_id,outbound_date,trip_type:trip,adults};
     if(trip==='round_trip')values.return_date=return_date;
     await requestFlight(values,target);
