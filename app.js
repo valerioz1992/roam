@@ -404,6 +404,8 @@ const originals=new WeakMap();
 (()=>{
  const WORKER='https://roam-flights-api.valerio-z-1992.workers.dev';
  const escFlight=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const CITY_AIRPORTS={'pisa':['PSA'],'firenze':['FLR'],'bologna':['BLQ'],'milano':['MXP','LIN','BGY'],'roma':['FCO','CIA'],'venezia':['VCE','TSF'],'napoli':['NAP'],'torino':['TRN'],'madrid':['MAD'],'barcellona':['BCN'],'londra':['LHR','LGW','STN','LTN','LCY'],'parigi':['CDG','ORY','BVA'],'amsterdam':['AMS'],'bruxelles':['BRU','CRL'],'berlino':['BER'],'monaco':['MUC'],'francoforte':['FRA'],'zurigo':['ZRH'],'ginevra':['GVA'],'vienna':['VIE'],'praga':['PRG'],'varsavia':['WAW'],'cracovia':['KRK'],'budapest':['BUD'],'atene':['ATH'],'lisbona':['LIS'],'porto':['OPO'],'dublino':['DUB'],'copenaghen':['CPH'],'stoccolma':['ARN','BMA'],'oslo':['OSL'],'helsinki':['HEL'],'istanbul':['IST','SAW'],'new york':['JFK','LGA','EWR'],'los angeles':['LAX'],'miami':['MIA'],'tokyo':['HND','NRT'],'bangkok':['BKK','DMK'],'singapore':['SIN'],'dubai':['DXB']};
+ const resolveCity=value=>{const raw=String(value||'').trim(),key=raw.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase();if(CITY_AIRPORTS[key])return CITY_AIRPORTS[key].join(',');if(/^[a-z]{3}$/i.test(raw))return raw.toUpperCase();throw new Error('Seleziona una città presente nell’elenco: '+raw)};
  const fmtDuration=m=>{const n=Number(m);if(!Number.isFinite(n))return '';const h=Math.floor(n/60),r=n%60;return h+' h'+(r?' '+r+' min':'')};
  const flightList=data=>[...(Array.isArray(data.best_flights)?data.best_flights:[]),...(Array.isArray(data.other_flights)?data.other_flights:[])].slice(0,8);
  function renderFlightResults(target,data){
@@ -437,18 +439,18 @@ const originals=new WeakMap();
     const rows=[...form.querySelectorAll('[data-multi-leg]')];
     if(!rows.length)throw new Error('Aggiungi almeno una tratta.');
     for(let i=0;i<rows.length;i++){
-     const row=rows[i],departure_id=row.querySelector('[data-multi-from]').value.trim().toUpperCase(),arrival_id=row.querySelector('[data-multi-to]').value.trim().toUpperCase(),outbound_date=row.querySelector('[data-multi-date]').value;
+     const row=rows[i],departure_id=resolveCity(row.querySelector('[data-multi-from]').value),arrival_id=resolveCity(row.querySelector('[data-multi-to]').value),outbound_date=row.querySelector('[data-multi-date]').value;
      if(!/^[A-Z]{3}$/.test(departure_id)||!/^[A-Z]{3}$/.test(arrival_id)||departure_id===arrival_id||!/^\\d{4}-\\d{2}-\\d{2}$/.test(outbound_date))throw new Error('Controlla aeroporti IATA e data della tratta '+(i+1)+'.');
     }
     target.innerHTML='';
     for(let i=0;i<rows.length;i++){
-     const row=rows[i],departure_id=row.querySelector('[data-multi-from]').value.trim().toUpperCase(),arrival_id=row.querySelector('[data-multi-to]').value.trim().toUpperCase(),outbound_date=row.querySelector('[data-multi-date]').value;
+     const row=rows[i],departure_id=resolveCity(row.querySelector('[data-multi-from]').value),arrival_id=resolveCity(row.querySelector('[data-multi-to]').value),outbound_date=row.querySelector('[data-multi-date]').value;
      const section=document.createElement('section');section.className='flight-leg-results';section.innerHTML='<h4>Tratta '+(i+1)+': '+escFlight(departure_id)+' → '+escFlight(arrival_id)+'</h4><div class="flight-results-inner"></div>';target.appendChild(section);
      await requestFlight({departure_id,arrival_id,outbound_date,trip_type:'one_way',adults},section.querySelector('.flight-results-inner'));
     }
    }else{
-    const departure_id=String(fd.get('departure_id')||'').trim().toUpperCase(),arrival_id=String(fd.get('arrival_id')||'').trim().toUpperCase(),outbound_date=String(fd.get('outbound_date')||''),return_date=String(fd.get('return_date')||'');
-    if(!/^[A-Z]{3}$/.test(departure_id)||!/^[A-Z]{3}$/.test(arrival_id)||departure_id===arrival_id)throw new Error('Inserisci due codici aeroporto IATA diversi di 3 lettere.');
+    const departure_id=resolveCity(fd.get('departure_city')),arrival_id=resolveCity(fd.get('arrival_city')),outbound_date=String(fd.get('outbound_date')||''),return_date=String(fd.get('return_date')||'');
+    if(!/^[A-Z]{3}$/.test(departure_id)||!/^[A-Z]{3}$/.test(arrival_id)||departure_id===arrival_id)throw new Error('Inserisci due città diverse presenti nell’elenco.');
     if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(outbound_date))throw new Error('Seleziona una data di partenza valida.');
     if(trip==='round_trip'&&(!/^\\d{4}-\\d{2}-\\d{2}$/.test(return_date)||return_date<outbound_date))throw new Error('Seleziona una data di ritorno successiva alla partenza.');
     const values={departure_id,arrival_id,outbound_date,trip_type:trip,adults};
@@ -465,7 +467,7 @@ const originals=new WeakMap();
   single.querySelectorAll('input').forEach(input=>input.required=!isMulti&&(input.name!=='return_date'||select.value==='round_trip'));
   if(isMulti&&!form.querySelector('[data-multi-leg]'))form.querySelector('[data-multicity-legs]').insertAdjacentHTML('beforeend',multiLegMarkup());
  });
- function multiLegMarkup(){return '<div class="flight-fields" data-multi-leg><label>Partenza · IATA<input data-multi-from maxlength="3" placeholder="PSA" required></label><label>Arrivo · IATA<input data-multi-to maxlength="3" placeholder="MAD" required></label><label>Data<input data-multi-date type="date" required></label></div>'}
+ function multiLegMarkup(){return '<div class="flight-fields" data-multi-leg><label>Città di partenza<input data-multi-from list="roam-airport-cities" placeholder="Pisa" autocomplete="off" required></label><label>Città di arrivo<input data-multi-to list="roam-airport-cities" placeholder="Madrid" autocomplete="off" required></label><label>Data<input data-multi-date type="date" required></label></div>'}
  document.addEventListener('click',event=>{
   const add=event.target.closest('[data-add-flight-leg]');if(!add)return;
   const form=add.closest('form'),box=form.querySelector('[data-multicity-legs]');box.insertAdjacentHTML('beforeend',multiLegMarkup());
